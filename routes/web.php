@@ -11,19 +11,19 @@
 |
 */
 
-Route::get('/','HomeController@home');
-Route::get('/about','HomeController@about');
-Route::get('/properties','HomeController@properties');
-Route::get('/news','HomeController@news');
-Route::get('/contact','HomeController@contact');
+Route::get('/','HomeController@home')->name('home');
+Route::get('/about','HomeController@about')->name('about');
+Route::get('/properties','HomeController@properties')->name('properties');
+Route::get('/news','HomeController@news')->name('news');
+Route::get('/contact','HomeController@contact')->name('contact');
 
 Route::group(['middleware' => 'checkloggedin'],function(){
-Route::get('/admin','HomeController@admin');
-Route::get('/admin/table','HomeController@table');
-Route::get('/admin/register','HomeController@register');
+Route::get('/admin','HomeController@admin')->name('admin');
+Route::get('/admin/table','HomeController@table')->name('table');
+Route::get('/admin/register','HomeController@register')->name('register');
 });
 
 
-Route::get('/admin/login','HomeController@login');
-Route::post('storelogin','HomeController@storelogin');
+Route::get('/admin/login','HomeController@login')->name('login');
+Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 

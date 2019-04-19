@@ -1,6 +1,6 @@
 <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="{{ URL::to('/') }}"><img class="main-logo" src="{{ asset('/adminstyle/img/logo/logo.png') }}" alt="" /></a>
+                <a href="{{ route('home') }}"><img class="main-logo" src="{{ asset('/adminstyle/img/logo/logo.png') }}" alt="" /></a>
                 <strong><img src="{{ asset('/adminstyle/img/logo/logosn.png') }}" alt="" /></strong>
             </div>
             <div class="nalika-profile">
@@ -40,11 +40,11 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ URL::to('/admin/login') }}"><span class="mini-sub-pro">Login</span></a></li>
+                                <li><a title="Google Map" href="{{ route('login') }}"><span class="mini-sub-pro">Login</span></a></li>
                                 
                             </ul>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ URL::to('/admin/register') }}"><span class="mini-sub-pro">Register</span></a></li>
+                                <li><a title="Google Map" href="{{ route('register') }}"><span class="mini-sub-pro">Register</span></a></li>
                                 
                             </ul>
 
@@ -60,7 +60,7 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Peity Charts" href="{{URL::to('/admin/table')}}"><span class="mini-sub-pro">Static Table</span></a></li>
+                                <li><a title="Peity Charts" href="{{ route('table') }}"><span class="mini-sub-pro">Static Table</span></a></li>
                                
                             </ul>
                         </li>

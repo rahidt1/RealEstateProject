@@ -8,11 +8,11 @@
 			</a>
 		</div>
 		<ul>
-			<li class="menu_item"><a href="{{ URL::to('/') }}">Home</a></li>
-			<li class="menu_item"><a href="{{ URL::to('/about') }}">About us</a></li>
-			<li class="menu_item"><a href="{{ URL::to('/properties') }}">Properties</a></li>
-			<li class="menu_item"><a href="{{ URL::to('/news') }}">News</a></li>
-			<li class="menu_item"><a href="{{ URL::to('/contact') }}">Contact</a></li>
+			<li class="menu_item"><a href="{{ route('home') }}">Home</a></li>
+			<li class="menu_item"><a href="{{ route('about') }}">About us</a></li>
+			<li class="menu_item"><a href="{{ route('properties') }}">Properties</a></li>
+			<li class="menu_item"><a href="{{ route('news') }}">News</a></li>
+			<li class="menu_item"><a href="{{ route('contact') }}">Contact</a></li>
 		</ul>
 	</div>
 	<div class="menu_phone"><span>call us: </span>652 345 3222 11</div>

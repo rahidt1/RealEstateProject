@@ -2,7 +2,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-3">
-						<div class="footer_logo"><a href="{{ URL::to('/') }}"><img src="{{ asset('/webstyle/images/logo_large.png') }}" alt=""></a></div>
+						<div class="footer_logo"><a href="{{ route('home') }}"><img src="{{ asset('/webstyle/images/logo_large.png') }}" alt=""></a></div>
 					</div>
 					<div class="col-lg-9 d-flex flex-column align-items-start justify-content-end">
 						<div class="footer_title">Latest Properties</div>
@@ -58,11 +58,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 							<div class="footer_nav">
 								<ul>
-									<li><a href="{{ URL::to('/') }}">Home</a></li>
-									<li><a href="{{ URL::to('/about') }}">About us</a></li>
-									<li><a href="{{ URL::to('/properties') }}">Properties</a></li>
-									<li><a href="{{ URL::to('/news') }}">News</a></li>
-									<li><a href="{{ URL::to('/contact') }}">Contact</a></li>
+									<li><a href="{{ route('home') }}">Home</a></li>
+									<li><a href="{{ route('about') }}">About us</a></li>
+									<li><a href="{{ route('properties') }}">Properties</a></li>
+									<li><a href="{{ route('news') }}">News</a></li>
+									<li><a href="{{ route('contact') }}">Contact</a></li>
 								</ul>
 							</div>
 							<div class="footer_phone ml-auto"><span>call us: </span>652 345 3222 11</div>

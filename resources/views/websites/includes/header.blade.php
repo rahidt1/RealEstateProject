@@ -3,15 +3,15 @@
 		<div class="col">
 			<div class="header_content d-flex flex-row align-items-center justify-content-start">
 				<div class="logo">
-					<a href="{{ URL::to('/') }}"><img src="{{ asset('/webstyle/images/logo.png') }}" alt=""></a>
+					<a href="{{ route('home') }}"><img src="{{ asset('/webstyle/images/logo.png') }}" alt=""></a>
 				</div>
 				<nav class="main_nav">
 					<ul>
-						<li class="active"><a href="{{ URL::to('/') }}">Home</a></li>
-						<li><a href="{{ URL::to('/about') }}">About us</a></li>
-						<li><a href="{{ URL::to('/properties') }}">Properties</a></li>
-						<li><a href="{{ URL::to('/news') }}">News</a></li>
-						<li><a href="{{ URL::to('/contact') }}">Contact</a></li>
+						<li class="active"><a href="{{ route('home') }}">Home</a></li>
+						<li><a href="{{ route('about') }}">About us</a></li>
+						<li><a href="{{ route('properties') }}">Properties</a></li>
+						<li><a href="{{ route('news') }}">News</a></li>
+						<li><a href="{{ route('contact') }}">Contact</a></li>
 					</ul>
 				</nav>
 				<div class="phone_num ml-auto">

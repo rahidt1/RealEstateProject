@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="back-link back-backend">
-                    <a href="{{ URL::to('/') }}" class="btn btn-primary">Back to Homepage</a>
+                    <a href="{{ route('home') }}" class="btn btn-primary">Back to Homepage</a>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
-                        <form method="post"action="{{ URL::to('/storelogin') }}" id="loginForm">
+                        <form method="post"action="{{ route('storelogin') }}" id="loginForm">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="control-label" for="email">Email</label>

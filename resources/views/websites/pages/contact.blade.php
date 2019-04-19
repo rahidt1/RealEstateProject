@@ -14,7 +14,7 @@
 							<div class="home_title">Contact</div>
 							<div class="breadcrumbs ml-auto">
 								<ul>
-									<li><a href="{{ URL::to('/') }}">Home</a></li>
+									<li><a href="{{ route('home') }}">Home</a></li>
 									<li>Contact</li>
 								</ul>
 							</div>
