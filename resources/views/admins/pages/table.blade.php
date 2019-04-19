@@ -21,26 +21,18 @@
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                    <th>Address</th>
+                    <th>Owner</th>
+                    <th>Agent Name</th>
+                    <th class="text-center">ACTION</th>
                   </tr>
                 </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
+
                 <tbody>
                   <tr>
-                    <td>Tiger Nixon</td>
+                    <td>` Nixon</td>
                     <td>System Architect</td>
                     <td>Edinburgh</td>
                     <td>61</td>

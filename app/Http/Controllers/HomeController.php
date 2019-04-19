@@ -47,5 +47,9 @@ class HomeController extends Controller
             return redirect('/admin');
         } 
 
-    }   
+    }
+    public function storetable(){
+            $data=Admin::all();
+            return view('admins.pages.table',['mydata'=>$data]);
+        }   
 }
