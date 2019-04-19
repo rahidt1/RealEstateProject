@@ -42,6 +42,16 @@
 <!-- main JS -->
 <script src="{{ asset('/adminstyle/js/main.js') }}"></script>
 
+
+<!-- Jquery DataTable -->
+
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+	$(document).ready( function () {
+	    $('#tanvir').DataTable();
+	} );
+</script>
+
 <!-- For SB Template -->
 
 <!-- <script src="{{ asset('/adminstyle/sb/vendor/jquery/jquery.min.js') }}"></script>
