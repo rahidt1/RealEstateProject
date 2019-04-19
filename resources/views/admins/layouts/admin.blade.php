@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="{{ URL::to('/') }}"><img class="main-logo" src="{{ asset('/adminstyle/img/logo/logo.png') }}" alt="" /></a>
+                        <a href="{{ route('home') }}"><img class="main-logo" src="{{ asset('/adminstyle/img/logo/logo.png') }}" alt="" /></a>
                     </div>
                 </div>
             </div>

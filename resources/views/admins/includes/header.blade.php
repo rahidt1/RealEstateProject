@@ -160,7 +160,7 @@
                                                         </li>
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-                                                        <li><a href="{{ URL::to('/admin/login') }}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        <li><a href="{{ route('login') }}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                         </li>
                                                     </ul>
                                                 </li>

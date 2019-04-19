@@ -12,7 +12,7 @@
 							<div class="home_title">About</div>
 							<div class="breadcrumbs ml-auto">
 								<ul>
-									<li><a href="{{ URL::to('/') }}">Home</a></li>
+									<li><a href="{{ route('home') }}">Home</a></li>
 									<li>About us</li>
 								</ul>
 							</div>
