@@ -25,5 +25,5 @@ Route::get('/admin/register','HomeController@register')->name('register');
 
 
 Route::get('/admin/login','HomeController@login')->name('login');
-Route::post('/storelogin','HomeController@storelogin')->name('storelogin');
+Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 
