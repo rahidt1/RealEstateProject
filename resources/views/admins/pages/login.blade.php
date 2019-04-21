@@ -51,6 +51,13 @@
                 <div class="text-center m-b-md custom-login">
                     <h3 style="color: orange">LOGIN PAGE</h3>
                     <p>This is the best app ever!</p>
+
+                    @if(Session::has('msg'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('msg') }}
+                    </div>
+                    @endif
+                    
                 </div>
                 <div class="hpanel">
                     <div class="panel-body">
