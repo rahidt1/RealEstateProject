@@ -45,7 +45,7 @@ class HomeController extends Controller
             $request->session()->put('username',$admin->name);
             $request->session()->put('useremail',$admin->email);
             return redirect()->route('admin');
-            /*This is a dummy text*/
+
         } 
 
     }   
