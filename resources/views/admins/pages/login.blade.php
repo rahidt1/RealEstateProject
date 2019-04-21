@@ -66,12 +66,12 @@
                             <div class="form-group">
                                 <label class="control-label" for="email">Email</label>
                                 <input type="email" placeholder="Enter your email" title="Please enter your email" required="" value="" name="email" id="email" class="form-control">
-                                <span class="help-block small">Your unique email to app</span>
+                                <span class="help-block small">Your unique email</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="password">Password</label>
                                 <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                                <span class="help-block small">Your strong password</span>
+                                <span class="help-block small">Your password</span>
                             </div>
                             <div class="checkbox col-lg-12">
                                 <label>
