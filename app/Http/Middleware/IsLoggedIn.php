@@ -17,7 +17,7 @@ class IsLoggedIn
     public function handle($request, Closure $next)
     {
         if(!Session::has('useremail')){
-            return redirect('/admin/login');
+            return redirect()->route('login');
         }
         return $next($request);
     }
