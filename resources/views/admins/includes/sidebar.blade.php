@@ -44,7 +44,7 @@
                                 
                             </ul>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ route('register') }}"><span class="mini-sub-pro">Register</span></a></li>
+                                <li><a title="Google Map" href="{{ route('register') }}"><span class="mini-sub-pro">Register Property</span></a></li>
                                 
                             </ul>
 

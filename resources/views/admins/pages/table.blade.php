@@ -12,13 +12,13 @@
 
         <!-- DataTables Example -->
         <div class="card mb-3">
-          <div class="card-header" style="color: white">
+          <div class="card-header" style="color: pink">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
-          <div class="card-body" style="color: white">
+            Property List</div><br>
+          <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="tanvir" width="100%" cellspacing="0">
-                <thead>
+                <thead class="thead">
                   <tr>
                     <th>ID</th>
                     <th>Property Name</th>

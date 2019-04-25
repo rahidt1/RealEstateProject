@@ -156,7 +156,7 @@
                                                         </li> -->
                                                         <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
                                                         </li>
-                                                        <li><a href="lock.html"><span class="icon nalika-diamond author-log-ic"></span> Lock</a>
+                                                        <li><a href="{{ route('register') }}"><span class="icon nalika-diamond author-log-ic"></span>Add Property</a>
                                                         </li>
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
