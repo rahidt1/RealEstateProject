@@ -102,5 +102,6 @@ class HomeController extends Controller
     }
     public function deleteregister($id){
         PropertyList::find($id)->delete();
+        return redirect()->route('table');
     }
 }
