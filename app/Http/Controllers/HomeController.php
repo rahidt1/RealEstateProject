@@ -53,5 +53,9 @@ class HomeController extends Controller
             return redirect()->back()->with('msg','Inavlid email or password');
         }
 
-    }   
+    }
+    public function edit($id){
+        $obj=PropertyList::find($id);
+        return view('edit',['student'=>$obj]);
+    }
 }
