@@ -50,12 +50,33 @@ class HomeController extends Controller
 
         }
         else {
-            return redirect()->back()->with('msg','Inavlid email or password');
+/*            return redirect()->back()->with('msg','Inavlid email or password');*/
+            $request->session()->flash('alert-danger', 'Invalid email/password !');
+            return redirect()->route('login');
         }
 
     }
-    public function edit($id){
-        $obj=PropertyList::find($id);
-        return view('edit',['student'=>$obj]);
+    public function storeregister(Request $request){
+
+        $propertyname = $request->propertyname;
+        $location = $request->location;
+        $price = $request->price;
+        $address = $request->address;
+        $owner = $request->owner;
+        $agentname = $request->agentname;
+
+
+        $obj = new PropertyList();
+        $obj->propertyname=$propertyname;
+        $obj->location=$location;
+        $obj->price=$price;
+        $obj->address=$address;
+        $obj->owner=$owner;
+        $obj->agentname=$agentname;
+
+        if($obj->save()){
+            $request->session()->flash('alert-success', 'Successfully Registered !');
+            return redirect()->route('register');
+        }
     }
 }

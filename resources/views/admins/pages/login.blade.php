@@ -52,11 +52,21 @@
                     <h3 style="color: orange">LOGIN PAGE</h3>
                     <p>This is the best app ever!</p>
 
-                    @if(Session::has('msg'))
+<!--                     @if(Session::has('msg'))
                     <div class="alert alert-danger">
                         {{ Session::get('msg') }}
                     </div>
-                    @endif
+                    @endif -->
+
+                    <div class="flash-message">
+                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                          @if(Session::has('alert-' . $msg))
+
+                          <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="{{ route('login') }}" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                          @endif
+                        @endforeach
+                    </div> 
+                    <!-- end .flash-message -->
                     
                 </div>
                 <div class="hpanel">

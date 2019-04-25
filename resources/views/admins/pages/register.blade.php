@@ -1,6 +1,7 @@
 @extends('admins.layouts.admin')
 @section('abc')
 <div class="container-fluid">
+    
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>
         <div class="col-md-6 col-md-6 col-sm-6 col-xs-12">
@@ -10,7 +11,8 @@
             </div>
             <div class="hpanel">
                 <div class="panel-body">
-                    <form action="#" id="loginForm">
+                    <form method="post" action="{{ route('storeregister') }}" id="loginForm">
+                        {{csrf_field()}}
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label>Property Name</label>
