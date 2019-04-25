@@ -17,9 +17,10 @@
             Data Table Example</div>
           <div class="card-body" style="color: white">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered" id="tanvir" width="100%" cellspacing="0">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Property Name</th>
                     <th>Location</th>
                     <th>Price</th>
@@ -31,19 +32,19 @@
                 </thead>
 
                 <tbody>
-                  
+                  @foreach($mydata as $d)
                   <tr>
-                    <td>Tiger Nixon</td>
-                    <td>Florida</td>
-                    <td>$120,000</td>
-                    <td>779 S. Edgewater St. Miami, FL 33174</td>
-                    <td>Tanvir Ahmed</td>
-                    <td>Saimon Chowdhury</td>
+                    <td>{{ $d->id }}</td>
+                    <td>{{ $d->propertyname }}</td>
+                    <td>{{ $d->location }}</td>
+                    <td>{{ $d->price }}</td>
+                    <td>{{ $d->address }}</td>
+                    <td>{{ $d->owner }}</td>
+                    <td>{{ $d->agentname }}</td>
                     <td class="text-center">
               
 
-                      <a class="btn btn-raised btn-primary btn-sm" href="#" ><i class="fas fa-user-edit"></i></a>
-                      &nbsp;&nbsp; 
+                      <a class="btn btn-raised btn-primary btn-sm" href="#" ><i class="fas fa-user-edit"></i></a> 
 
                       <a class="btn btn-danger" data-toggle="modal" data-target="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
                       <div id="#" class="modal fade" role="dialog">
@@ -68,7 +69,7 @@
                     </td>
                   </tr>
                   
-
+                  @endforeach
                 </tbody>
               </table>
             </div>

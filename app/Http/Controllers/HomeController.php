@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Admin;
+use App\PropertyList;
 use Session;
 
 class HomeController extends Controller
@@ -27,7 +28,8 @@ class HomeController extends Controller
         return view('admins.pages.home');
     }
     public function table(){
-        return view('admins.pages.table');
+        $data=PropertyList::all();
+        return view('admins.pages.table',['mydata'=>$data]);
     }
     public function register(){
         return view('admins.pages.register');
@@ -38,7 +40,7 @@ class HomeController extends Controller
     public function storelogin(Request $request){
         $email = $request->email;
         $password = $request->password;
-        $admin = User::where('email','=',$email)
+        $admin = Admin::where('email','=',$email)
                             ->where('password','=',$password)
                             ->first();
         if($admin){

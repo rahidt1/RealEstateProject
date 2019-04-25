@@ -1,0 +1,23 @@
+/*Changing PropertyList text color*/
+
+body{
+	color:black;
+}
+html, body{
+	background: black;
+}
+.thead{
+
+	color: #ff4d94;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+border: 1px solid black;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+color: orange;
+}
+tbody{
+	border-color: red;
+}
