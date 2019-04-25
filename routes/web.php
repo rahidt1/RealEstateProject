@@ -22,6 +22,9 @@ Route::get('/admin','HomeController@admin')->name('admin');
 Route::get('/admin/table','HomeController@table')->name('table');
 Route::get('/admin/register','HomeController@register')->name('register');
 Route::post('/storeregister','HomeController@storeregister')->name('storeregister');
+Route::get('/editregister/{id}','HomeController@editregister')->name('editregister');
+Route::post('/updateregister/{id}','HomeController@updateregister')->name('updateregister');
+Route::delete('/deleteregister/{id}','HomeController@deleteregister')->name('deleteregister');
 });
 
 

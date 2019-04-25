@@ -79,4 +79,28 @@ class HomeController extends Controller
             return redirect()->route('register');
         }
     }
+    public function editregister($id){
+        $obj=PropertyList::find($id);
+        return view('admins.pages.edit',['editlist'=>$obj]);
+    }
+    public function updateregister(Request $request,$id){
+        $obj = PropertyList::find($id);
+        $obj->propertyname=$request->propertyname;
+        $obj->location=$request->location;
+        $obj->price=$request->price;
+        $obj->address=$request->address;
+        $obj->owner=$request->owner;
+        $obj->agentname=$request->agentname;
+        
+
+        if($obj->save()){
+            
+            $request->session()->flash('alert-success', 'Successfully updated !');
+            return redirect()->route('table');
+        }
+
+    }
+    public function deleteregister($id){
+        PropertyList::find($id)->delete();
+    }
 }
