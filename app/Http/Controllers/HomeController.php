@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Admin;
+use App\User;
 use App\PropertyList;
 use Session;
 
@@ -40,7 +40,7 @@ class HomeController extends Controller
     public function storelogin(Request $request){
         $email = $request->email;
         $password = $request->password;
-        $admin = Admin::where('email','=',$email)
+        $admin = User::where('email','=',$email)
                             ->where('password','=',$password)
                             ->first();
         if($admin){
