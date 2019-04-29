@@ -112,9 +112,15 @@
 
 			</div>
 		</div>
+
+
+
 	</div>
 
-	
+	<!-- Home Search	 -->
+	<div class="home_search">
+		@include('websites.includes.search')
+	</div>
 
 	<!-- Recent -->
 
@@ -209,6 +215,7 @@
 			</div>
 		</div>
 	</div>
+
 
 	<!-- Cities -->
 
@@ -313,6 +320,8 @@
 			</div>
 		</div>
 	</div>
+
+
 
 	<!-- Testimonials -->
 

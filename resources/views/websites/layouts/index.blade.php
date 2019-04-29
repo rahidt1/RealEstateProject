@@ -14,17 +14,19 @@
 		@include('websites.includes.header')
 	</header>
 
+	<!-- Home -->
+
+	<!-- Home Search -->
+
+	
 	<!-- Menu For Small Screens -->
 
 	<div class="menu trans_500">
 		@include('websites.includes.mobilemenu')
 	</div>
 	
-	<!-- Home -->
 
-	<!-- Home Search -->
 
-	@include('websites.includes.search')
 
 	<!-- Content -->
 
