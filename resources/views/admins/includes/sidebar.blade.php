@@ -25,7 +25,7 @@
                                    <span class="mini-click-non">Properties</span>
                                 </a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
+                                <li><a title="Property List" href="{{ route('tableproperty') }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
                         </li>
@@ -44,7 +44,11 @@
                                 
                             </ul>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ route('register') }}"><span class="mini-sub-pro">Register Property</span></a></li>
+                                <li><a title="Google Map" href="{{ route('addproperty') }}"><span class="mini-sub-pro">Register Property</span></a></li>
+                                
+                            </ul>
+                                <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Google Map" href="{{ route('registeruser') }}"><span class="mini-sub-pro">User Registration</span></a></li>
                                 
                             </ul>
 
@@ -60,7 +64,7 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Peity Charts" href="{{ route('table') }}"><span class="mini-sub-pro">Static Table</span></a></li>
+                                <li><a title="Peity Charts" href="#"><span class="mini-sub-pro">Static Table</span></a></li>
                                
                             </ul>
                         </li>

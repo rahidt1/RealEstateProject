@@ -27,13 +27,11 @@ class HomeController extends Controller
     public function admin(){
         return view('admins.pages.home');
     }
-    public function table(){
+    public function tableproperty(){
         $data=PropertyList::all();
-        return view('admins.pages.table',['mydata'=>$data]);
+        return view('admins.pages.tableproperty',['mydata'=>$data]);
     }
-    public function register(){
-        return view('admins.pages.register');
-    }
+
     public function login(){
         return view('admins.pages.login');
     }
@@ -56,7 +54,10 @@ class HomeController extends Controller
         }
 
     }
-    public function storeregister(Request $request){
+    public function addproperty(){
+        return view('admins.pages.addproperty');
+    }
+    public function storeaddproperty(Request $request){
 
         $propertyname = $request->propertyname;
         $location = $request->location;
@@ -76,14 +77,14 @@ class HomeController extends Controller
 
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('register');
+            return redirect()->route('tableproperty');
         }
     }
-    public function editregister($id){
+    public function editaddproperty($id){
         $obj=PropertyList::find($id);
-        return view('admins.pages.edit',['editlist'=>$obj]);
+        return view('admins.pages.editproperty',['editlist'=>$obj]);
     }
-    public function updateregister(Request $request,$id){
+    public function updateaddproperty(Request $request,$id){
         $obj = PropertyList::find($id);
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
@@ -96,12 +97,41 @@ class HomeController extends Controller
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('table');
+            return redirect()->route('tableproperty');
         }
 
     }
-    public function deleteregister($id){
+    public function deleteaddproperty($id){
         PropertyList::find($id)->delete();
-        return redirect()->route('table');
+        return redirect()->route('tableproperty');
+    }
+    public function registeruser(){
+        return view('admins.pages.registeruser');
+    }
+    public function storeregisteruser(Request $request){
+
+        $name = $request->name;
+        $email = $request->email;
+        $username = $request->username;
+        $password = $request->password;
+        $phone = $request->phone;
+        $address = $request->address;
+        $date_of_birth = $request->date_of_birth;
+
+
+        $obj = new User();
+        $obj->name=$name;
+        $obj->email=$email;
+        $obj->username=$username;
+        $obj->password=$password;
+        $obj->phone=$phone;
+        $obj->address=$address;
+        $obj->date_of_birth=$date_of_birth;
+
+
+        if($obj->save()){
+            $request->session()->flash('alert-success', 'Successfully Registered !');
+            return redirect()->route('login');
+        }
     }
 }
