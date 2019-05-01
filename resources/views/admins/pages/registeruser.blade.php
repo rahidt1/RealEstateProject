@@ -92,8 +92,8 @@
                                 <input type="password" class="form-control" name="password">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Phone Number</label>
-                                <input type="number" class="form-control" name="phone">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" name="phone">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Address</label>

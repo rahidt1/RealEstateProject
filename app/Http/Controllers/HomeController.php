@@ -27,10 +27,9 @@ class HomeController extends Controller
     public function admin(){
         return view('admins.pages.home');
     }
-    public function tableproperty(){
-        $data=PropertyList::all();
-        return view('admins.pages.tableproperty',['mydata'=>$data]);
-    }
+
+
+    /*Login Section*/
 
     public function login(){
         return view('admins.pages.login');
@@ -54,8 +53,16 @@ class HomeController extends Controller
         }
 
     }
+
+
+    /*Property Section*/
+
     public function addproperty(){
         return view('admins.pages.addproperty');
+    }
+        public function tableproperty(){
+        $data=PropertyList::all();
+        return view('admins.pages.tableproperty',['propertydata'=>$data]);
     }
     public function storeaddproperty(Request $request){
 
@@ -105,8 +112,15 @@ class HomeController extends Controller
         PropertyList::find($id)->delete();
         return redirect()->route('tableproperty');
     }
+
+    /*User Section*/
+
     public function registeruser(){
         return view('admins.pages.registeruser');
+    }
+    public function tableuser(){
+        $data=User::all();
+        return view('admins.pages.tableuser',['userdata'=>$data]);
     }
     public function storeregisteruser(Request $request){
 
@@ -133,5 +147,30 @@ class HomeController extends Controller
             $request->session()->flash('alert-success', 'Successfully Registered !');
             return redirect()->route('login');
         }
+    }
+    public function edituser($id){
+        $obj=User::find($id);
+        return view('admins.pages.edituser',['edituserlist'=>$obj]);
+    }
+    public function updateuser(Request $request,$id){
+        $obj = User::find($id);
+        $obj->name=$request->name;
+        $obj->email=$request->email;
+        $obj->username=$request->username;
+        $obj->phone=$request->phone;
+        $obj->address=$request->address;
+        $obj->date_of_birth=$request->date_of_birth;
+        
+
+        if($obj->save()){
+            
+            $request->session()->flash('alert-success', 'Successfully updated !');
+            return redirect()->route('tableuser');
+        }
+
+    }
+    public function deleteuser($id){
+        User::find($id)->delete();
+        return redirect()->route('tableuser');
     }
 }

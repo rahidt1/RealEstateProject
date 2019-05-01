@@ -28,6 +28,10 @@
                                 <li><a title="Property List" href="{{ route('tableproperty') }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="User List" href="{{ route('tableuser') }}"><span class="mini-sub-pro">User List</span></a></li>
+                                
+                            </ul>
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>

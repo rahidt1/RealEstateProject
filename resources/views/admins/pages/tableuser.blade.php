@@ -14,40 +14,42 @@
         <div class="card mb-3">
           <div class="card-header" style="color: pink">
             <i class="fas fa-table"></i>
-            Property List</div><br>
+            User List</div><br>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="tanvir" width="100%" cellspacing="0">
                 <thead class="thead">
                   <tr>
                     <th>ID</th>
-                    <th>Property Name</th>
-                    <th>Location</th>
-                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Phone</th>
                     <th>Address</th>
-                    <th>Owner</th>
-                    <th>Agent Name</th>
+                    <th>Birthday</th>
+                    <th>Role</th>
                     <th class="text-center">ACTION</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  @foreach($propertydata as $d)
+                  @foreach($userdata as $u)
                   <tr>
-                    <td>{{ $d->id }}</td>
-                    <td>{{ $d->propertyname }}</td>
-                    <td>{{ $d->location }}</td>
-                    <td>{{ $d->price }}</td>
-                    <td>{{ $d->address }}</td>
-                    <td>{{ $d->owner }}</td>
-                    <td>{{ $d->agentname }}</td>
+                    <td>{{ $u->id }}</td>
+                    <td>{{ $u->name }}</td>
+                    <td>{{ $u->email }}</td>
+                    <td>{{ $u->username }}</td>
+                    <td>{{ $u->phone }}</td>
+                    <td>{{ $u->address }}</td>
+                    <td>{{ $u->date_of_birth }}</td>
+                    <td>{{ $u->role }}</td>
                     <td class="text-center">
               
 
-                      <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/editaddproperty/'.$d->id) }}" ><i class="fas fa-user-edit"></i></a> 
+                      <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/edituser/'.$u->id) }}" ><i class="fas fa-user-edit"></i></a> 
 
-                      <a class="btn btn-danger" data-toggle="modal" data-target="#{{ $d->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                      <div id="{{ $d->id }}" class="modal fade" role="dialog">
+                      <a class="btn btn-danger" data-toggle="modal" data-target="#{{ $u->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                      <div id="{{ $u->id }}" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -58,7 +60,7 @@
                               <p>Are You sure you want to delete?</p>
                             </div>
                             <div class="modal-footer">
-                              <a class="btn btn-success" href="{{ URL::to('/deleteaddproperty/'.$d->id)}}">Yes</a>
+                              <a class="btn btn-success" href="{{ URL::to('/deleteuser/'.$u->id)}}">Yes</a>
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                           </div>
