@@ -21,6 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->email,
         'password' => $faker->password,
         'username' =>$faker->lastname,
+        'date_of_birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'email_verified_at' => now(),
         'company' =>$faker->company,
         'role'=>$faker->randomElement($array = array ('Admin','User')),

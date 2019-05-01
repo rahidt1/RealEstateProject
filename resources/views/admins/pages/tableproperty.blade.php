@@ -44,7 +44,7 @@
                     <td class="text-center">
               
 
-                      <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/editregister/'.$d->id) }}" ><i class="fas fa-user-edit"></i></a> 
+                      <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/editaddproperty/'.$d->id) }}" ><i class="fas fa-user-edit"></i></a> 
 
                       <a class="btn btn-danger" data-toggle="modal" data-target="#{{ $d->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                       <div id="{{ $d->id }}" class="modal fade" role="dialog">
@@ -58,7 +58,7 @@
                               <p>Are You sure you want to delete?</p>
                             </div>
                             <div class="modal-footer">
-                              <a class="btn btn-success" href="{{ URL::to('/deleteregister/'.$d->id)}}">Yes</a>
+                              <a class="btn btn-success" href="{{ URL::to('/deleteaddproperty/'.$d->id)}}">Yes</a>
                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                           </div>

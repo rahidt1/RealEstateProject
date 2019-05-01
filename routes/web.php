@@ -19,15 +19,16 @@ Route::get('/contact','HomeController@contact')->name('contact');
 
 Route::group(['middleware' => 'checkloggedin'],function(){
 Route::get('/admin','HomeController@admin')->name('admin');
-Route::get('/admin/table','HomeController@table')->name('table');
-Route::get('/admin/register','HomeController@register')->name('register');
-Route::post('/storeregister','HomeController@storeregister')->name('storeregister');
-Route::get('/editregister/{id}','HomeController@editregister')->name('editregister');
-Route::post('/updateregister/{id}','HomeController@updateregister')->name('updateregister');
-Route::get('/deleteregister/{id}','HomeController@deleteregister')->name('deleteregister');
+Route::get('/admin/tableproperty','HomeController@tableproperty')->name('tableproperty');
+Route::get('/admin/addproperty','HomeController@addproperty')->name('addproperty');
+Route::post('/storeaddproperty','HomeController@storeaddproperty')->name('storeaddproperty');
+Route::get('/editaddproperty/{id}','HomeController@editaddproperty')->name('editaddproperty');
+Route::post('/updateaddproperty/{id}','HomeController@updateaddproperty')->name('updateaddproperty');
+Route::get('/deleteaddproperty/{id}','HomeController@deleteaddproperty')->name('deleteaddproperty');
 });
 
-
+Route::get('/admin/register','HomeController@registeruser')->name('registeruser');
+Route::post('storeregisteruser','HomeController@storeregisteruser')->name('storeregisteruser');
 Route::get('/admin/login','HomeController@login')->name('login');
 Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 
