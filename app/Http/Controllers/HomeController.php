@@ -70,8 +70,8 @@ class HomeController extends Controller
             'location' => 'required',
             'price' => 'required|numeric',
             'address' => 'required',
-            'owner' => 'required|alpha',
-            'agentname' => 'required|alpha',
+            'owner' => 'required',
+            'agentname' => 'required',
         ]);
 
         $propertyname = $request->propertyname;
