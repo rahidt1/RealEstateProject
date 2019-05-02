@@ -1,5 +1,7 @@
 /*Changing PropertyList text color*/
 
+/*For all Table List*/
+
 body{
 	color:black;
 }
@@ -20,4 +22,11 @@ color: orange;
 }
 tbody{
 	border-color: red;
+}
+
+
+/*Server Side Error Message*/
+
+.error{
+	color: red;
 }

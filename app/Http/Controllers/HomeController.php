@@ -65,6 +65,14 @@ class HomeController extends Controller
         return view('admins.pages.tableproperty',['propertydata'=>$data]);
     }
     public function storeaddproperty(Request $request){
+        $request->validate([
+            'propertyname' => 'required',
+            'location' => 'required',
+            'price' => 'required|numeric',
+            'address' => 'required',
+            'owner' => 'required|alpha',
+            'agentname' => 'required|alpha',
+        ]);
 
         $propertyname = $request->propertyname;
         $location = $request->location;
@@ -123,6 +131,16 @@ class HomeController extends Controller
         return view('admins.pages.tableuser',['userdata'=>$data]);
     }
     public function storeregisteruser(Request $request){
+
+        $request->validate([
+            'name' => 'required|alpha',
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:4|max:50',
+            'phone' => 'required|numeric|unique:users,phone|min:11|max:15',
+            'address' => 'required',
+            'date_of_birth' => 'required|date',
+        ]);
 
         $name = $request->name;
         $email = $request->email;

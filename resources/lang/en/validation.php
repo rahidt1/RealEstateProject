@@ -128,8 +128,48 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+
+        'propertyname' => [
+            'required' => 'Property Name is required',
+        ],
+        'location' => [
+            'required' => 'Location is required',
+        ],
+        'price' => [
+            'required' => 'Price is required',
+        ],
+        'address' => [
+            'required' => 'Address is required',
+        ],
+        'owner' => [
+            'required' => 'Owner Name is required',
+        ],
+        'agentname' => [
+            'required' => 'Agent Name is required',
+        ],
+
+        /*User*/
+
+        'name' => [
+            'required' => 'Name is required',
+        ],
+        'email' => [
+            'required' => 'Email is required',
+        ],
+        'username' => [
+            'required' => 'Username is required',
+        ],
+        'password' => [
+            'required' => 'Password is required',
+        ],
+        'phone' => [
+            'required' => 'Phone Number is required',
+        ],
+        'address' => [
+            'required' => 'Address is required',
+        ],
+        'date_of_birth' => [
+            'required' => 'Date Of Birth is required',
         ],
     ],
 
@@ -144,6 +184,24 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+
+        /*Property*/
+        'propertyname' => 'Property Name',
+        'location' => 'Location',
+        'price' => 'Price',
+        'address' => 'Address',
+        'owner' => 'Owner Name',
+        'agentname' => 'Agent Name',
+
+        /*User*/
+        'name' => 'Name',
+        'email' => 'Email',
+        'username' => 'Username',
+        'password' => 'Password',
+        'phone' => 'Phone Number',
+        'address' => 'Address',
+        'date_of_birth'=> 'Date Of Birth',
+    ],
 
 ];

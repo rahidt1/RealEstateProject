@@ -16,27 +16,33 @@
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label>Property Name</label>
-                                <input type="text" class="form-control" name="propertyname">
+                                <input type="text" class="form-control" name="propertyname" required>
+                                <span class="error">{{ $errors->first('propertyname') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Location</label>
-                                <input type="text" class="form-control" name="location">
+                                <input type="text" class="form-control" name="location" required>
+                                <span class="error">{{ $errors->first('location') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Price</label>
-                                <input type="number" class="form-control" name="price">
+                                <input type="number" class="form-control" name="price" required>
+                                <span class="error">{{ $errors->first('price') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Address</label>
-                                <input type="text" class="form-control" name="address">
+                                <input type="text" class="form-control" name="address" required>
+                                <span class="error">{{ $errors->first('address') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Owner</label>
-                                <input type="text" class="form-control" name="owner">
+                                <input type="text" class="form-control" name="owner" required>
+                                <span class="error">{{ $errors->first('owner') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Agent Name</label>
-                                <input type="text" class="form-control" name="agentname">
+                                <input type="text" class="form-control" name="agentname" required>
+                                <span class="error">{{ $errors->first('agentname') }}</span>
                             </div>
                         </div>
                         <br>
