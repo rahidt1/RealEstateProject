@@ -133,11 +133,11 @@ class HomeController extends Controller
     public function storeregisteruser(Request $request){
 
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'email' => 'required|email|unique:users,email',
             'username' => 'required|unique:users,username',
             'password' => 'required|min:4|max:50',
-            'phone' => 'required|numeric|unique:users,phone|min:11|max:15',
+            'phone' => 'required|numeric|unique:users,phone|string:15',
             'address' => 'required',
             'date_of_birth' => 'required|date',
         ]);
