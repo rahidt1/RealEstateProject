@@ -33,7 +33,11 @@
     <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+    <style type="text/css">
+        .error{
+            color: red;
+        }
+    </style>    
     <div class="color-line"></div>
     <div class="container-fluid">
         <div class="row">
@@ -67,6 +71,20 @@
                         @endforeach
                     </div> 
                     <!-- end .flash-message -->
+
+                <!--  <div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li style="color: red">{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div> -->
+
+                    <!-- Server Side Validation -->
                     
                 </div>
                 <div class="hpanel">
@@ -77,31 +95,38 @@
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label>Name</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" required>
+                                <span class="error">{{ $errors->first('name') }}</span>
                             </div>
                             <div class="form-group col-lg-12">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" required>
+                                <span class="error">{{ $errors->first('email') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Username</label>
-                                <input type="text" class="form-control" name="username">
+                                <input type="text" class="form-control" name="username" required>
+                                <span class="error">{{ $errors->first('username') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password">
+                                <input type="password" class="form-control" name="password" required>
+                                <span class="error">{{ $errors->first('password') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Phone</label>
-                                <input type="tel" class="form-control" name="phone">
+                                <input type="tel" class="form-control" name="phone" required>
+                                <span class="error">{{ $errors->first('phone') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Address</label>
-                                <input type="text" class="form-control" name="address">
+                                <input type="text" class="form-control" name="address" required>
+                                <span class="error">{{ $errors->first('address') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Date of Birth</label>
-                                <input type="date" class="form-control" name="date_of_birth">
+                                <input type="date" class="form-control" name="date_of_birth" required>
+                                <span class="error">{{ $errors->first('date_of_birth') }}</span>
                             </div>
 <!--                             <div class="checkbox col-lg-12">
                                 <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter
