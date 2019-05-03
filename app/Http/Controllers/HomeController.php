@@ -72,6 +72,8 @@ class HomeController extends Controller
             'address' => 'required',
             'owner' => 'required',
             'agentname' => 'required',
+                        'propertyimages' => 'required',
+                                    'propertydoc' => 'required',
         ]);
 
         $propertyname = $request->propertyname;
@@ -80,6 +82,8 @@ class HomeController extends Controller
         $address = $request->address;
         $owner = $request->owner;
         $agentname = $request->agentname;
+                $propertyimages = $request->propertyimages;
+                        $propertydoc = $request->propertydoc;
 
 
         $obj = new PropertyList();
@@ -89,6 +93,8 @@ class HomeController extends Controller
         $obj->address=$address;
         $obj->owner=$owner;
         $obj->agentname=$agentname;
+        $obj->propertyimages=$propertyimages;
+        $obj->propertydoc=$propertydoc;
 
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
@@ -107,6 +113,8 @@ class HomeController extends Controller
         $obj->address=$request->address;
         $obj->owner=$request->owner;
         $obj->agentname=$request->agentname;
+        $obj->propertyimages=$request->propertyimages;    
+        $obj->propertydoc=$request->propertydoc;
         
 
         if($obj->save()){
