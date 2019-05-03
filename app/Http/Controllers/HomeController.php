@@ -202,7 +202,7 @@ class HomeController extends Controller
         if($request->hasFile('image')){
             $image = $request->file('image');
             $filename = time().'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(300,300,function($constraint){
+            Image::make($image)->resize(100,100,function($constraint){
                 $constraint->aspectratio();
             })->save( public_path('/thumbnail/'.$filename));
             $obj= new ImageModel();
