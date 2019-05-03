@@ -17,19 +17,20 @@
             Property List</div><br>
           <div class="card-body">
             <div class="table-responsive">
+              <div class="col-md-12" align="right">
+                <a href="{{ route('pdf') }}" class="btn btn-success">Save as PDF</a>
+              </div>
               <table class="table table-bordered" id="tanvir" width="100%" cellspacing="0">
                 <thead class="thead">
                   <tr>
                     <th>ID</th>
                     <th>Property Name</th>
                     <th>Location</th>
-                    <th>Price</th>
+                    <th>Price($)</th>
                     <th>Address</th>
                     <th>Owner</th>
                     <th>Agent Name</th>
                     <th>Property Images</th>
-
-                    <th>Property documents(pdf)</th>
                     
                     <th class="text-center">ACTION</th>
                   </tr>
@@ -45,8 +46,7 @@
                     <td>{{ $d->address }}</td>
                     <td>{{ $d->owner }}</td>
                     <td>{{ $d->agentname }}</td>
-                    <td>{{ $d->propertyimages }} <input type="file" id="file1" name="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2"></input></td>
-                    <td>{{ $d->propertydoc }}<input type="file" id="file2" name="file1" multiple class="file" data-overwrite-initial="false" ></td>
+                    <td></td>
                     <td class="text-center">
               
 

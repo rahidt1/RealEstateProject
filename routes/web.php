@@ -60,4 +60,8 @@ Route::get('/admin/imagemultiple','HomeController@imagemultiple')->name('imagemu
 Route::post('/uploadmultiple','HomeController@uploadmultiple')->name('uploadmultiple');
 Route::get('/admin/tableimagemultiple','HomeController@tableimagemultiple')->name('tableimagemultiple');
 
+/*PDF*/
+Route::get('admin/pdfpage','HomeController@pdfpage')->name('pdfpage');
+Route::get('admin/pdf','HomeController@pdf')->name('pdf');
+
 

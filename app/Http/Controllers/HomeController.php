@@ -8,6 +8,7 @@ use App\PropertyList;
 use Session;
 Use Image;
 use App\ImageModel;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -74,8 +75,6 @@ class HomeController extends Controller
             'address' => 'required',
             'owner' => 'required',
             'agentname' => 'required',
-                        'propertyimages' => 'required',
-                                    'propertydoc' => 'required',
         ]);
 
         $propertyname = $request->propertyname;
@@ -84,8 +83,6 @@ class HomeController extends Controller
         $address = $request->address;
         $owner = $request->owner;
         $agentname = $request->agentname;
-                $propertyimages = $request->propertyimages;
-                        $propertydoc = $request->propertydoc;
 
 
         $obj = new PropertyList();
@@ -95,8 +92,6 @@ class HomeController extends Controller
         $obj->address=$address;
         $obj->owner=$owner;
         $obj->agentname=$agentname;
-        $obj->propertyimages=$propertyimages;
-        $obj->propertydoc=$propertydoc;
 
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
@@ -202,6 +197,9 @@ class HomeController extends Controller
         return redirect()->route('tableuser');
     }
 
+
+    /*Image Upload*/
+
     public function imageform(){
         return view('admins.pages.upload');
     }
@@ -233,7 +231,7 @@ class HomeController extends Controller
         return view('admins.pages.uploadmultiple');
     }
     public function uploadmultiple(Request $request){
-        if($request->hasFile('image')){
+/*        if($request->hasFile('image')){
             foreach ($request->image as $image) {
                 $filename = time().'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(100,100,function($constraint){
@@ -244,13 +242,40 @@ class HomeController extends Controller
             }
         }
         $obj= new ImageModel();
-        $obj->image=json_encode($data);
+        $obj->image=json_encode($data);*/
+        foreach($request->image as $image){
+        $filename = time().'.'.$image->getClientOriginalExtension();
+   
+        $destinationPath = public_path('/thumbnail');
+        $img = Image::make($image->getRealPath());
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$filename);
+
+        $obj= new ImageModel();
+        $obj->image=$filename;
         if($obj->save()){
             return redirect()->route('tableimagemultiple');
         }
+        }
+        
+
     }
     public function tableimagemultiple(){
         $data=ImageModel::all();
         return view('admins.pages.tableimagemultiple',['imagemultiple'=>$data]);
+    }
+
+
+    /*PDF Download*/
+    public function pdfpage(){
+        return view('admins.pages.pdf');
+    }
+    public function pdf(){
+       
+        $pdf = PDF::loadview('admins.pages.pdf');
+        return $pdf->download('tanvir.pdf');
+
+
     }
 }
