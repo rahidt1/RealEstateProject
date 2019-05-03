@@ -46,7 +46,17 @@ Route::post('storeregisteruser','HomeController@storeregisteruser')->name('store
 Route::get('/admin/login','HomeController@login')->name('login');
 Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 
+
+
+/*Single Image*/
+
 Route::get('/admin/imageform','HomeController@imageform')->name('imageform');
 Route::post('/upload','HomeController@upload')->name('upload');
 Route::get('/admin/tableimage','HomeController@tableimage')->name('tableimage');
+
+/*Multiple Image*/
+
+Route::get('/admin/imagemultiple','HomeController@imagemultiple')->name('imagemultiple');
+Route::post('/uploadmultiple','HomeController@uploadmultiple')->name('uploadmultiple');
+
 
