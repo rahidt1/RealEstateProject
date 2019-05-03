@@ -228,4 +228,29 @@ class HomeController extends Controller
         $data=ImageModel::all();
         return view('admins.pages.tableimage',['imagedata'=>$data]);
     }
+
+    public function imagemultiple(){
+        return view('admins.pages.uploadmultiple');
+    }
+    public function uploadmultiple(Request $request){
+        if($request->hasFile('image')){
+            foreach ($request->image as $image) {
+                $filename = time().'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(100,100,function($constraint){
+                    $constraint->aspectratio();
+                })->save( public_path('/thumbnail/'.$filename));
+                $data[]=$filename;
+
+            }
+        }
+        $obj= new ImageModel();
+        $obj->image=json_encode($data);
+        if($obj->save()){
+            return redirect()->route('tableimagemultiple');
+        }
+    }
+    public function tableimagemultiple(){
+        $data=ImageModel::all();
+        return view('admins.pages.tableimagemultiple',['imagemultiple'=>$data]);
+    }
 }
