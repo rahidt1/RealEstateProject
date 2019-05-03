@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\PropertyList;
 use Session;
+Use Image;
+use App\ImageModel;
 
 class HomeController extends Controller
 {
@@ -190,5 +192,28 @@ class HomeController extends Controller
     public function deleteuser($id){
         User::find($id)->delete();
         return redirect()->route('tableuser');
+    }
+
+    public function imageform(){
+        return view('admins.pages.upload');
+    }
+    public function upload(Request $request){
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(300,300,function($constraint){
+                $constraint->aspectratio();
+            })->save( public_path('/thumbnail/'.$filename));
+            $obj= new ImageModel();
+            $obj->image=$filename;
+            if($obj->save()){
+                return redirect()->route('tableimage');
+            }
+        }
+    }
+    public function tableimage(){
+        $data=ImageModel::all();
+        return view('admins.pages.tableimage',['imagedata'=>$data]);
     }
 }
