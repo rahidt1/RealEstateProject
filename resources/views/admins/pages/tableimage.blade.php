@@ -5,6 +5,7 @@
 </head>
 <body>
 
+
 	<div>
 		@foreach($imagedata as $i)
 		<img class="img" src="/thumbnail/{{ $i->image }}">

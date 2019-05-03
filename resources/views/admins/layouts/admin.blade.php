@@ -11,10 +11,12 @@
         <![endif]-->
 
 
+
     <div class="left-sidebar-pro">
         @include('admins.includes.sidebar')
     </div>
     <!-- Start Welcome area -->
+
     <div class="all-content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -46,6 +48,7 @@
                                                 <h2></h2>
                                                 <p>Welcome to <span class="bread-ntd">blusky</span></p>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">

@@ -5,6 +5,7 @@
 				<div class="logo">
 					<a href="{{ route('home') }}"><img src="{{ asset('/webstyle/images/logo.png') }}" alt=""></a>
 				</div>
+
 				<nav class="main_nav">
 					<ul>
 						<li class="active"><a href="{{ route('home') }}">Home</a></li>
@@ -16,12 +17,14 @@
 						<li><a href="{{ route('registeruser') }}">Join Us</a></li>
 					</ul>
 				</nav>
+
 <!-- 				<div class="phone_num ml-auto">
 					<div class="phone_num_inner">
 						<img src="{{ asset('/webstyle/images/phone.png') }}" alt=""><span>652-345 3222 11</span>
 					</div>
 				</div> -->
 				<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+
 			</div>
 		</div>
 	</div>
