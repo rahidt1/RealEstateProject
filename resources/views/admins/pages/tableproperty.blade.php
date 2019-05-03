@@ -27,6 +27,10 @@
                     <th>Address</th>
                     <th>Owner</th>
                     <th>Agent Name</th>
+                    <th>Property Images</th>
+
+                    <th>Property documents(pdf)</th>
+                    
                     <th class="text-center">ACTION</th>
                   </tr>
                 </thead>
@@ -41,6 +45,8 @@
                     <td>{{ $d->address }}</td>
                     <td>{{ $d->owner }}</td>
                     <td>{{ $d->agentname }}</td>
+                    <td>{{ $d->propertyimages }} <input type="file" id="file1" name="file" multiple class="file" data-overwrite-initial="false" data-min-file-count="2"></input></td>
+                    <td>{{ $d->propertydoc }}<input type="file" id="file2" name="file1" multiple class="file" data-overwrite-initial="false" ></td>
                     <td class="text-center">
               
 
