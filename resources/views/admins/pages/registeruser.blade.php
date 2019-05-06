@@ -95,37 +95,37 @@
                         <div class="row">
                             <div class="form-group col-lg-12">
                                 <label>Name</label>
-                                <input type="text" class="form-control" name="name" required>
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                 <span class="error">{{ $errors->first('name') }}</span>
                             </div>
                             <div class="form-group col-lg-12">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email" required>
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                                 <span class="error">{{ $errors->first('email') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Username</label>
-                                <input type="text" class="form-control" name="username" required>
+                                <input type="text" class="form-control" name="username" value="{{ old('username') }}">
                                 <span class="error">{{ $errors->first('username') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Password</label>
-                                <input type="password" class="form-control" name="password" required>
+                                <input type="password" class="form-control" name="password" value="{{ old('password') }}">
                                 <span class="error">{{ $errors->first('password') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Phone</label>
-                                <input type="tel" class="form-control" name="phone" required>
+                                <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}">
                                 <span class="error">{{ $errors->first('phone') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Address</label>
-                                <input type="text" class="form-control" name="address" required>
+                                <input type="text" class="form-control" name="address" value="{{ old('address') }}">
                                 <span class="error">{{ $errors->first('address') }}</span>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Date of Birth</label>
-                                <input type="date" class="form-control" name="date_of_birth" required>
+                                <input type="date" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}">
                                 <span class="error">{{ $errors->first('date_of_birth') }}</span>
                             </div>
 <!--                             <div class="checkbox col-lg-12">
