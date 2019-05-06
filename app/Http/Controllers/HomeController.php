@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
 use App\User;
 use App\PropertyList;
@@ -135,17 +135,9 @@ class HomeController extends Controller
         $data=User::all();
         return view('admins.pages.tableuser',['userdata'=>$data]);
     }
-    public function storeregisteruser(Request $request){
+    public function storeregisteruser(UserStoreRequest $request){
 
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'username' => 'required|unique:users,username',
-            'password' => 'required|min:4|max:50',
-            'phone' => 'required|numeric|unique:users,phone|string:15',
-            'address' => 'required',
-            'date_of_birth' => 'required|date',
-        ]);
+        $validated = $request->validated();
 
         $name = $request->name;
         $email = $request->email;
@@ -243,21 +235,25 @@ class HomeController extends Controller
         }
         $obj= new ImageModel();
         $obj->image=json_encode($data);*/
-        foreach($request->image as $image){
-        $filename = time().'.'.$image->getClientOriginalExtension();
-   
-        $destinationPath = public_path('/thumbnail');
-        $img = Image::make($image->getRealPath());
-        $img->resize(100, 100, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$filename);
 
-        $obj= new ImageModel();
-        $obj->image=$filename;
-        if($obj->save()){
-            return redirect()->route('tableimagemultiple');
+        if($request->hasFile('image')){
+            foreach($request->File('image') as $image){
+            $filename = $image->getClientOriginalName();
+            $filename = $image->getClientOriginalExtension();
+       
+            $destinationPath = public_path('/thumbnail');
+            $img = Image::make($image->getRealPath());
+            $img->resize(100, 100, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$filename);
+
+            $obj= new ImageModel();
+            $obj->image=$filename;
+            $obj->save();
+            }
         }
-        }
+        return redirect()->route('tableimagemultiple');
+
         
 
     }
