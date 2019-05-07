@@ -26,7 +26,7 @@ $factory->define(User::class, function (Faker $faker) {
         'date_of_birth' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'email_verified_at' => now(),
         'company' =>$faker->company,
-        'role'=>$faker->randomElement($array = array ('Admin','User')),
+        'role'=>$faker->randomElement($array = array ('admin','user')),
         'login_token'=>str_random(10),
         'is_logged_in'=>$faker->boolean,
 		'is_active'=>$faker->boolean,

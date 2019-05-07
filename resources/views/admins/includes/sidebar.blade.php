@@ -20,18 +20,21 @@
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li> <!-- Add  class="active" for opened dropdown -->
-                            <a class="has-arrow" href="index.html">
+                            <a class="has-arrow" href="#">
                                    <i class="icon nalika-home icon-wrap"></i>
                                    <span class="mini-click-non">Properties</span>
                                 </a>
+                    @if(Session::get('userrole')=='admin')
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Property List" href="{{ route('tableproperty') }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
+                        
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="User List" href="{{ route('tableuser') }}"><span class="mini-sub-pro">User List</span></a></li>
                                 
                             </ul>
+                    @endif
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
