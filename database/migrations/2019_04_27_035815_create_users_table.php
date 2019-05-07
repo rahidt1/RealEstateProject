@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->date('date_of_birth');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('company')->nullable();
-            $table->string('role')->nullable()->default('User');
+            $table->string('role')->nullable()->default('user');
             $table->string('login_token')->nullable();
             $table->tinyInteger('is_logged_in')->default('0');
             $table->tinyInteger('is_active')->default('1');

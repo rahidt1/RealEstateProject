@@ -46,6 +46,7 @@ class HomeController extends Controller
         if($admin){
             $request->session()->put('username',$admin->name);
             $request->session()->put('useremail',$admin->email);
+            $request->session()->put('userrole',$admin->role);
             return redirect()->route('admin');
 
         }
@@ -77,21 +78,21 @@ class HomeController extends Controller
             'agentname' => 'required',
         ]);
 
-        $propertyname = $request->propertyname;
+/*        $propertyname = $request->propertyname;
         $location = $request->location;
         $price = $request->price;
         $address = $request->address;
         $owner = $request->owner;
         $agentname = $request->agentname;
-
+*/
 
         $obj = new PropertyList();
-        $obj->propertyname=$propertyname;
-        $obj->location=$location;
-        $obj->price=$price;
-        $obj->address=$address;
-        $obj->owner=$owner;
-        $obj->agentname=$agentname;
+        $obj->propertyname=$request->date_of_birth;
+        $obj->location=$request->location;
+        $obj->price=$request->price;
+        $obj->address=$request->address;
+        $obj->owner=$request->owner;
+        $obj->agentname=$request->agentname;
 
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
@@ -139,23 +140,14 @@ class HomeController extends Controller
 
         $validated = $request->validated();
 
-        $name = $request->name;
-        $email = $request->email;
-        $username = $request->username;
-        $password = $request->password;
-        $phone = $request->phone;
-        $address = $request->address;
-        $date_of_birth = $request->date_of_birth;
-
-
         $obj = new User();
-        $obj->name=$name;
-        $obj->email=$email;
-        $obj->username=$username;
-        $obj->password=$password;
-        $obj->phone=$phone;
-        $obj->address=$address;
-        $obj->date_of_birth=$date_of_birth;
+        $obj->name=$request->name;
+        $obj->email=$request->email;
+        $obj->username=$request->username;
+        $obj->password=$request->password;
+        $obj->phone=$request->phone;
+        $obj->address=$request->address;
+        $obj->date_of_birth=$request->date_of_birth;
 
 
         if($obj->save()){
@@ -175,6 +167,7 @@ class HomeController extends Controller
         $obj->phone=$request->phone;
         $obj->address=$request->address;
         $obj->date_of_birth=$request->date_of_birth;
+        $obj->role=$request->role;
         
 
         if($obj->save()){

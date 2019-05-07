@@ -38,6 +38,10 @@
                                 <label>Date Of Birth</label>
                                 <input type="date" class="form-control" name="date_of_birth" value="{{ $edituserlist->date_of_birth }}">
                             </div>
+                            <div class="form-group col-lg-6">
+                                <label>Role</label>
+                                <input type="text" class="form-control" name="role" value="{{ $edituserlist->role }}">
+                            </div>
                         </div>
                         <br>
                         <div class="text-center">

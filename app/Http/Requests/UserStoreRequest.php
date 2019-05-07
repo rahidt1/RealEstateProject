@@ -33,4 +33,16 @@ class UserStoreRequest extends FormRequest
             'date_of_birth' => 'required|date',
         ];
     }
+    public function messages(){
+        return [
+            /*User*/
+            'name.required'=> 'Name is required!',
+            'email.required'=> 'Email is required!',
+            'username.required'=> 'Username is required!',
+            'password.required'=> 'Password is required!',
+            'phone.required'=> 'Phone is required!',
+            'address.required'=> 'Address is required!',
+            'date_of_address.required'=> 'Date Of Birth is required!',
+        ];
+    }
 }
