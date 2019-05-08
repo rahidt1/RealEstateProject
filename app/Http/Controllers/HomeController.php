@@ -233,7 +233,7 @@ class HomeController extends Controller
         if($request->hasFile('image')){
             foreach($request->File('image') as $image){
             $filename = $image->getClientOriginalName();
-            $filename = $image->getClientOriginalExtension();
+            //$filename = $image->getClientOriginalExtension();
        
             $destinationPath = public_path('/thumbnail');
             $img = Image::make($image->getRealPath());
