@@ -64,4 +64,6 @@ Route::get('/admin/tableimagemultiple','HomeController@tableimagemultiple')->nam
 Route::get('admin/pdfpage','HomeController@pdfpage')->name('pdfpage');
 Route::get('admin/pdf','HomeController@pdf')->name('pdf');
 
+/*Foreign Key*/
+Route::get('/foreignkey','HomeController@foreignkey')->name('foreignkey');
 

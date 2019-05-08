@@ -15,6 +15,16 @@ class CreateHireBooksTable extends Migration
     {
         Schema::create('hire_books', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')
+                    ->references('id')
+                    ->on('users');
+
+            $table->unsignedBigInteger('book_id');
+            $table->foreign('book_id')
+                    ->references('id')
+                    ->on('books');
+            $table->date('hire_date')->nullable();
             $table->timestamps();
         });
     }
