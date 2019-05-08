@@ -9,6 +9,7 @@ use Session;
 Use Image;
 use App\ImageModel;
 use PDF;
+use DB;
 
 class HomeController extends Controller
 {
@@ -266,5 +267,15 @@ class HomeController extends Controller
         return $pdf->download('tanvir.pdf');
 
 
+    }
+
+    /*Foreign Key*/
+    public function foreignkey(){
+        $data= DB::table('hire_books as hb')
+                    ->Join('users','hb.student_id','users.id')
+                    ->Join('books','hb.book_id','books.id')
+                    ->select('users.name as username','books.name as bookname','hb.hire_date')
+                    ->get();
+        dd($data);
     }
 }
