@@ -7,7 +7,7 @@
 <body>
 
 	<div class="container">
-		<form class="login" action="{{ route('ajaxadd') }}" method="post" data-type="json">
+		<form id="login" action="{{ route('ajaxadd') }}" method="post" data-type="json">
 			{{ csrf_field() }}
 		  <input type="text" name="email">
 		  <input type="password" name="password">
@@ -29,24 +29,21 @@
 		  $('form.login:first').on('submit', function(e){
 		    e.preventDefault(); 
 
-		    var $this = $(this);
+		    var data = $("#login").serialize();
 
 		    $.ajax({
 		        type: $this.attr('method'),
 		        url: $this.attr('action'),
-		        data: $this.serializeArray(),
+		        data: data,
 		        dataType: $this.data('type'),
 		        success: function (response) {
-		           if(response.success) {
-		             location.reload();
-		           }
+		        	if(response=="ok"){
+		        		$("#login").html("<p>Success</p>");
+		        	}
+		        	else{
+		        		$("#login").html("<p>Success</p>")
+		        	}
 		        },
-/*		        error: function (jqXHR) {
-		          var response = $.parseJSON(jqXHR.responseText);
-		          if(response.message) {
-		            alert(response.message);
-		          }
-		        }*/
 		        
 		    });
 		  });
