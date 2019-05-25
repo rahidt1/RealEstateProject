@@ -67,3 +67,9 @@ Route::get('admin/pdf','HomeController@pdf')->name('pdf');
 /*Foreign Key*/
 Route::get('/foreignkey','HomeController@foreignkey')->name('foreignkey');
 
+/*Ajax*/
+Route::get('/division','ApiController@division')->name('division');
+Route::get('/district/{division_id}','ApiController@district')->name('district');
+
+Route::get('/ajaxform','ApiController@ajaxform')->name('ajaxform');
+Route::post('/ajaxadd','ApiController@ajaxadd')->name('ajaxadd');
