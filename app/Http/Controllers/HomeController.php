@@ -10,6 +10,8 @@ Use Image;
 use App\ImageModel;
 use PDF;
 use DB;
+use App\Division;
+use App\District;
 
 class HomeController extends Controller
 {
@@ -278,4 +280,7 @@ class HomeController extends Controller
                     ->get();
         dd($data);
     }
+
+//API & Ajax in ApiController
+
 }
