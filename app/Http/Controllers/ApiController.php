@@ -57,8 +57,8 @@ class ApiController extends Controller
     }
     public function ajaxadd(Request $request){
         $obj = new User();
-        $obj->email = $request->email;
-        $obj->password = $request->password;
+        $obj->company = $request->company;
+        $obj->role = $request->role;
         if($obj->save()){
             return response()->json([
                 'status'=>true,

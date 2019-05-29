@@ -12,10 +12,9 @@
 	</style> --}}
 
 	<div>
-		{{-- Showing Multiple Image is not Solved --}}
-		@foreach($imagemultiple as $i)
-		<img class="img" src="/thumbnail/{{ $i->image }}">
-		@endforeach
+		@foreach(json_decode($imagemultiple->image, true) as $image)
+		   <img src="{{ URL::to('property/'.$image)}}" width="100px" height="100px">    
+		@endforeach 
 	</div>
 
 </body>
