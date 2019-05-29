@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Pagination\Paginator;
 use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
 use App\User;
@@ -22,7 +23,12 @@ class HomeController extends Controller
     	return view('websites.pages.about');
     }
     public function properties(){
-    	return view('websites.pages.properties');
+        $data=PropertyList::inRandomOrder()->take(9)->get();
+    	return view('websites.pages.properties',['data'=>$data]);
+    }
+    public function singleproperty($id){
+        $data=PropertyList::where('id',$id)->first();
+        return view('websites.pages.singleproperty')->with('data',$data);
     }
     public function news(){
     	return view('websites.pages.news');
@@ -88,6 +94,7 @@ class HomeController extends Controller
         $owner = $request->owner;
         $agentname = $request->agentname;
 */
+
 
         $obj = new PropertyList();
         $obj->propertyname=$request->date_of_birth;
@@ -232,29 +239,27 @@ class HomeController extends Controller
         $obj= new ImageModel();
         $obj->image=json_encode($data);*/
 
-        if($request->hasFile('image')){
-            foreach($request->File('image') as $image){
-            $filename = $image->getClientOriginalName();
-            //$filename = $image->getClientOriginalExtension();
-       
-            $destinationPath = public_path('/thumbnail');
-            $img = Image::make($image->getRealPath());
-            $img->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$filename);
+    if($request->hasfile('image'))
+          {
 
-            $obj= new ImageModel();
-            $obj->image=$filename;
-            $obj->save();
+            foreach($request->file('image') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/property/', $name);  
+                $data[] = $name;  
             }
-        }
+         }
+        $obj= new ImageModel();
+        $obj->image =json_encode($data);
+        $obj->status = 'deactive';
+        $obj->save();
         return redirect()->route('tableimagemultiple');
 
         
 
     }
     public function tableimagemultiple(){
-        $data=ImageModel::all();
+        $data=ImageModel::all()->first();
         return view('admins.pages.tableimagemultiple',['imagemultiple'=>$data]);
     }
 

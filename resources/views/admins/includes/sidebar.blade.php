@@ -1,4 +1,6 @@
 <nav id="sidebar" class="">
+
+            
             <div class="sidebar-header">
                 <a href="{{ route('home') }}"><img class="main-logo" src="{{ asset('/adminstyle/img/logo/logo.png') }}" alt="" /></a>
                 <strong><img src="{{ asset('/adminstyle/img/logo/logosn.png') }}" alt="" /></strong>
@@ -6,7 +8,7 @@
             <div class="nalika-profile">
                 <div class="profile-dtl">
                     <a href="#"><img src="{{ asset('/adminstyle/img/notification/icon.png') }}" alt="" /></a>
-                    <h2>Tanvir <span class="min-dtn">Ahmed</span></h2>
+                    <h2><span class="min-dtn"></span></h2>
                 </div>
                 <div class="profile-social-dtl">
                     <ul class="dtl-social">
@@ -19,12 +21,16 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
+
+                   
+                    
+                    @if(Session::get('userrole')=='admin')
                         <li> <!-- Add  class="active" for opened dropdown -->
                             <a class="has-arrow" href="#">
                                    <i class="icon nalika-home icon-wrap"></i>
                                    <span class="mini-click-non">Properties</span>
                                 </a>
-                    @if(Session::get('userrole')=='admin')
+                    
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Property List" href="{{ route('tableproperty') }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
@@ -35,6 +41,7 @@
                                 
                             </ul>
                     @endif
+                    
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
