@@ -19,3 +19,5 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/webstyle/styles/news_responsive.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/webstyle/styles/contact.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/webstyle/styles/contact_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/webstyle/styles/property.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/webstyle/styles/property_responsive.css') }}">

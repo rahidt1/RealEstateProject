@@ -23,7 +23,12 @@ class HomeController extends Controller
     	return view('websites.pages.about');
     }
     public function properties(){
-    	return view('websites.pages.properties');
+        $data=PropertyList::inRandomOrder()->take(9)->get();
+    	return view('websites.pages.properties',['data'=>$data]);
+    }
+    public function singleproperty($id){
+        $data=PropertyList::where('id',$id)->first();
+        return view('websites.pages.singleproperty')->with('data',$data);
     }
     public function news(){
     	return view('websites.pages.news');
