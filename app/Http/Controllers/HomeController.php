@@ -253,13 +253,13 @@ class HomeController extends Controller
         $obj->image =json_encode($data);
         $obj->status = 'deactive';
         $obj->save();
-        return redirect()->route('tableimagemultiple');
+        return redirect()->route('tableimagemultiple',['id' => $obj->id]);
 
         
 
     }
-    public function tableimagemultiple(){
-        $data=ImageModel::all()->first();
+    public function tableimagemultiple($id){
+        $data=ImageModel::where('id',$id)->first();
         return view('admins.pages.tableimagemultiple',['imagemultiple'=>$data]);
     }
 
