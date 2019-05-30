@@ -46,6 +46,7 @@
                     <td>{{ $d->address }}</td>
                     <td>{{ $d->owner }}</td>
                     <td>{{ $d->agentname }}</td>
+                    <td><img class="img" src="/propery/{{ $d->image }}"></td>
                     <td></td>
                     <td class="text-center">
               

@@ -77,7 +77,7 @@
 	
 	<!-- Home -->
 
-	<div class="home">
+{{-- 	<div class="home">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('/webstyle/images/properties.jpg') }}" data-speed="0.8"></div>
 		<div class="home_container">
 			<div class="container">
@@ -96,9 +96,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 
 	<!-- Home Search -->
+	<div><br><br></div>
 	<div class="home_search">
 		<div class="container">
 			<div class="row">
@@ -192,14 +193,13 @@
 			<div class="owl-carousel owl-theme intro_slider">
 				<!-- Slide -->
 
-				@foreach (json_decode($data->image, true) as $image)
-					<div class="owl-item"><img src="{{ URL::to('property/'.$image)}}" alt=""></div>
-				@endforeach
 				
+				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
+				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
+				
+				<div class="owl-item"><img src="{{ URL::to('property/'.$data->image)}}" alt=""></div>
 				 
-				{{-- <div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div> --}}
-				
-				{{-- <div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div> --}}
+
 			</div>
 
 			<!-- Intro Slider Nav -->
@@ -300,11 +300,11 @@
 
 						<!-- Realtor -->
 						<div class="sidebar_realtor">
-							<div class="sidebar_realtor_image"><img src="{{ asset('/webstyle/images/sidebar_realtor.jpg') }}" alt=""></div>
+							<div class="sidebar_realtor_image"><img src="{{ asset('/webstyle/images/realtor_3.jpg') }}" alt=""></div>
 							<div class="sidebar_realtor_body text-center">
 								<div class="sidebar_realtor_title"><a href="#">{{ $data->agentname }}</a></div>
 								<div class="sidebar_realtor_subtitle">{{ $data->agentrole }}</div>
-								<div class="sidebar_realtor_phone"><span>call us: </span>{{ $data->agentphone }}</div>
+								<div class="sidebar_realtor_phone"><span>call me: </span>{{ $data->agentphone }}</div>
 								<div class="realtor_link"><a href="#">+</a></div>
 							</div>
 						</div>
@@ -341,7 +341,7 @@
 
 								<!-- Property Room Item -->
 								<div class="property_room">
-									<div class="property_room_title">Area</div>
+									<div class="property_room_title">Area (Sq. Ft.)</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_3.png') }}" alt=""></div>
 										<div class="room_num">{{ $data->area }}</div>
@@ -530,7 +530,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{ asset('/webstyle/plugins/easing/easing.js') }}"></script>
 <script src="{{ asset('/webstyle/plugins/rangeslider.js-2.3.0/rangeslider.min.js') }}"></script>
 <script src="{{ asset('/webstyle/plugins/parallax-js-master/parallax.min.js') }}"></script>
-<script src="{{ asset('/webstyle/https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="{{ asset('/webstyle/js/property.js') }}"></script>
 </body>
 </html>

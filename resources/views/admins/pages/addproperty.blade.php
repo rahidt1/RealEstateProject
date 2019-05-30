@@ -30,11 +30,11 @@
                                 <input type="number" class="form-control" name="price" required>
                                 <span class="error">{{ $errors->first('price') }}</span>
                             </div>
-{{--                             <div class="form-group col-lg-12">
+                            <div class="form-group col-lg-12">
                                 <label>Image</label>
-                                <input type="file" name="image[]" multiple>
+                                <input type="file" name="image" multiple>
                                 <span class="error">{{ $errors->first('location') }}</span>
-                            </div> --}}
+                            </div>
 
                             <div class="form-group col-lg-6">
                                 <label>Address</label>

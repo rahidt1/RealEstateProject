@@ -1,14 +1,14 @@
 @extends('websites.layouts.index')
 @section('abc')
 
-<div class="home">
+{{-- <div class="home">
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('/webstyle/images/properties.jpg') }}" data-speed="0.8"></div>
 		<div class="home_container">
 			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="home_content d-flex flex-row align-items-end justify-content-start">
-							{{-- <div class="home_title">Search results</div> --}}
+							
 							<div class="breadcrumbs ml-auto">
 								<ul>
 									<li><a href="{{ route('home') }}">Home</a></li>
@@ -20,19 +20,19 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 
 	<!-- Home Search -->
 
 
 	<!-- Properties -->
-
+	<div><br><br></div>
 	<div class="properties">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="section_title">25 Properties found</div>
-					<div class="section_subtitle">Search your dream home</div>
+					<div class="section_title">Search your dream home</div>
+					<div class="section_subtitle"></div>
 				</div>
 			</div>
 			<div class="row properties_row">
@@ -49,7 +49,7 @@
 						</div>
 						<div class="property_body text-center">
 							<div class="property_location">{{$d->location}}</div>
-							<div class="property_title"><a href="property.html">{{ $d->propertyname }}</a></div>
+							<div class="property_title"><a href="{{ route('singleproperty',$d->id) }}">{{ $d->propertyname }}</a></div>
 							<div class="property_price">$ {{ $d->price }}</div>
 						</div>
 						<div class="property_footer d-flex flex-row align-items-center justify-content-start">
@@ -62,18 +62,18 @@
 			@endforeach
 
 			</div>
-{{-- 			<div class="row">
+			<div class="row">
 				<div class="col">
 					<div class="pagination">
 						<ul>
-							<li class="active"><a href="#">01.</a></li>
-							<li><a href="#">02.</a></li>
+							<li class="active"><a href="{{route('properties')}}">01.</a></li>
+							<li><a href="{{route('properties')}}">02.</a></li>
 							<li><a href="#">03.</a></li>
 							<li><a href="#">04.</a></li>
 						</ul>
 					</div>
 				</div>
-			</div> --}}
+			</div>
 		</div>
 	</div>
 
