@@ -59,7 +59,7 @@ Route::get('/admin/tableimage','HomeController@tableimage')->name('tableimage');
 
 Route::get('/admin/imagemultiple','HomeController@imagemultiple')->name('imagemultiple');
 Route::post('/uploadmultiple','HomeController@uploadmultiple')->name('uploadmultiple');
-Route::get('/admin/tableimagemultiple','HomeController@tableimagemultiple')->name('tableimagemultiple');
+Route::get('/admin/tableimagemultiple/{id}','HomeController@tableimagemultiple')->name('tableimagemultiple');
 
 /*PDF*/
 Route::get('admin/pdfpage','HomeController@pdfpage')->name('pdfpage');

@@ -7,7 +7,7 @@ $factory->define(App\PropertyList::class, function (Faker $faker) {
         'propertyname'=>$faker->company,
         'location'=>$faker->city,
         'price'=>$faker->numberbetween($min='100000',$max='300000'),
-        'area'=>$faker->numberbetween($min='500',$max='1400'),
+        'area'=>$faker->numberbetween($min='0',$max='1400'),
         'bed'=>$faker->numberbetween($min='1',$max='4'),
         'bath'=>$faker->numberbetween($min='1',$max='4'),
         'patio'=>$faker->numberbetween($min='1',$max='2'),

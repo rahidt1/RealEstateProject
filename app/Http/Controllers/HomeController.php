@@ -87,27 +87,37 @@ class HomeController extends Controller
             'agentname' => 'required',
         ]);
 
-/*        $propertyname = $request->propertyname;
-        $location = $request->location;
-        $price = $request->price;
-        $address = $request->address;
-        $owner = $request->owner;
-        $agentname = $request->agentname;
-*/
+/*        if($request->hasfile('image')){
 
+            foreach($request->file('image') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/property/', $name);  
+                $data[]=$name;
+            }
+         }*/
 
         $obj = new PropertyList();
-        $obj->propertyname=$request->date_of_birth;
+        //$obj->image =json_encode($data);
+        $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
         $obj->address=$request->address;
         $obj->owner=$request->owner;
         $obj->agentname=$request->agentname;
-
-        if($obj->save()){
+        $obj->agentrole=$request->agentrole;
+        $obj->agentphone=$request->agentphone;
+        $obj->area=$request->area;
+        $obj->bed=$request->bed;
+        $obj->bath=$request->bath;
+        $obj->patio=$request->patio;
+        $obj->garage=$request->garage;
+        $obj->description=$request->description;
+        $obj->save();
+/*        if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('tableproperty');
-        }
+            return redirect()->route('tableproperty',['id' => $obj->id]);
+        }*/
     }
     public function editaddproperty($id){
         $obj=PropertyList::find($id);
@@ -251,18 +261,26 @@ class HomeController extends Controller
          }
         $obj= new ImageModel();
         $obj->image =json_encode($data);
-        $obj->status = 'deactive';
         $obj->save();
-        return redirect()->route('tableimagemultiple');
+        return redirect()->route('tableimagemultiple',['id' => $obj->id]);
 
         
 
     }
-    public function tableimagemultiple(){
-        $data=ImageModel::all()->first();
+    public function tableimagemultiple($id){
+        $data=ImageModel::where('id',$id)->first();
         return view('admins.pages.tableimagemultiple',['imagemultiple'=>$data]);
     }
-
+    
+    /*Foreign Key*/
+    public function foreignkey(){
+        $data= DB::table('hire_books as hb')
+                    ->Join('users','hb.student_id','users.id')
+                    ->Join('books','hb.book_id','books.id')
+                    ->select('users.name as username','books.name as bookname','hb.hire_date')
+                    ->get();
+        dd($data);
+    }
 
     /*PDF Download*/
     public function pdfpage(){
@@ -276,15 +294,7 @@ class HomeController extends Controller
 
     }
 
-    /*Foreign Key*/
-    public function foreignkey(){
-        $data= DB::table('hire_books as hb')
-                    ->Join('users','hb.student_id','users.id')
-                    ->Join('books','hb.book_id','books.id')
-                    ->select('users.name as username','books.name as bookname','hb.hire_date')
-                    ->get();
-        dd($data);
-    }
+
 
 //API & Ajax in ApiController
 
