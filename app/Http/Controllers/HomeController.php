@@ -17,10 +17,12 @@ use App\District;
 class HomeController extends Controller
 {
     public function home(){
-    	return view('websites.pages.home');
+        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+    	return view('websites.pages.home',['data'=>$data]);
     }
     public function about(){
-    	return view('websites.pages.about');
+        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+    	return view('websites.pages.about',['data'=>$data]);
     }
     public function properties(){
         $data=PropertyList::inRandomOrder()->take(9)->get();
@@ -31,10 +33,12 @@ class HomeController extends Controller
         return view('websites.pages.singleproperty')->with('data',$data);
     }
     public function news(){
-    	return view('websites.pages.news');
+        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+    	return view('websites.pages.news',['data'=>$data]);
     }
     public function contact(){
-        return view('websites.pages.contact');
+        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        return view('websites.pages.contact',['data'=>$data]);
     }
     public function admin(){
         return view('admins.pages.home');
@@ -87,18 +91,17 @@ class HomeController extends Controller
             'agentname' => 'required',
         ]);
 
-/*        if($request->hasfile('image')){
+        $image = $request->file('image');
+        $filename = time().'.'.$image->getClientOriginalExtension();
+     
+   
+        $destinationPath = public_path('/property');
+        $img = Image::make($image->getRealPath());
+        $img->save($destinationPath.'/'.$filename);
 
-            foreach($request->file('image') as $image)
-            {
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/property/', $name);  
-                $data[]=$name;
-            }
-         }*/
 
         $obj = new PropertyList();
-        //$obj->image =json_encode($data);
+        $obj->image = $filename;
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
@@ -113,11 +116,10 @@ class HomeController extends Controller
         $obj->patio=$request->patio;
         $obj->garage=$request->garage;
         $obj->description=$request->description;
-        $obj->save();
-/*        if($obj->save()){
+        if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('tableproperty',['id' => $obj->id]);
-        }*/
+            return redirect()->route('tableproperty');
+        }
     }
     public function editaddproperty($id){
         $obj=PropertyList::find($id);

@@ -138,17 +138,20 @@
 						<div class="owl-carousel owl-theme recent_slider">
 							
 							<!-- Slide -->
+							@foreach ($data as $d)
+								
+							
 							<div class="owl-item">
 								<div class="recent_item">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
-											<img src="{{ asset('/webstyle/images/property_1.jpg') }}" alt="">
-											<div class="tag_featured property_tag"><a href="#">Featured</a></div>
+											<img src="{{ asset('/webstyle/images/'.$d->image) }}" alt="">
+											<div class="tag_featured property_tag"><a href="{{ route('singleproperty',$d->id) }}">{{$d->id}}</a></div>
 										</div>
 										<div class="recent_item_body text-center">
-											<div class="recent_item_location">Miami</div>
-											<div class="recent_item_title"><a href="property.html">Sea view property</a></div>
-											<div class="recent_item_price">$ 1. 234 981</div>
+											<div class="recent_item_location">{{$d->propertyname}}</div>
+											<div class="recent_item_title"><a href="{{route('singleproperty',$d->id)}}">{{$d->view}}</a></div>
+											<div class="recent_item_price">${{$d->price}}</div>
 										</div>
 										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
 											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_1.png') }}" alt=""></div><span>650 Ftsq</span></div>
@@ -158,9 +161,9 @@
 									</div>
 								</div>
 							</div>
+							@endforeach
 
-							<!-- Slide -->
-							<div class="owl-item">
+{{-- 							<div class="owl-item">
 								<div class="recent_item">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
@@ -181,7 +184,6 @@
 								</div>
 							</div>
 
-							<!-- Slide -->
 							<div class="owl-item">
 								<div class="recent_item">
 									<div class="recent_item_inner">
@@ -201,7 +203,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 						</div>
 
@@ -210,7 +212,7 @@
 							<div class="recent_slider_nav recent_slider_next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
 						</div>
 					</div>
-					<div class="button recent_button"><a href="#">see more</a></div>
+					<div class="button recent_button"><a href="{{route('properties')}}">see more</a></div>
 				</div>
 			</div>
 		</div>

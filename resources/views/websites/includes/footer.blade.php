@@ -14,36 +14,19 @@
 							<div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
 						</div>
 					</div>
+					@foreach ($data as $d)
+					
 					<div class="col-lg-3 footer_col">
 						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
 							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_1.jpg') }}" alt=""></div></div>
 							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Sea view property</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
+								<div class="footer_latest_location">{{$d->propertyname}}</div>
+								<div class="footer_latest_name"><a href="{{route('singleproperty',$d->id)}}">{{$d->view}}</a></div>
+								<div class="footer_latest_price">${{$d->price}}</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 footer_col">
-						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_2.jpg') }}" alt=""></div></div>
-							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Town House</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 footer_col">
-						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_3.jpg') }}" alt=""></div></div>
-							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Modern House</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
