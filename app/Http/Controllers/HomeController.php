@@ -18,17 +18,17 @@ use App\District;
 class HomeController extends Controller
 {
     public function home(){
-        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
         $rent = Rent::all();
     	return view('websites.pages.home',['mydata'=>$data,'rent'=>$rent]);
     }
     public function about(){
-        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
     	return view('websites.pages.about',['mydata'=>$data]);
     }
     public function properties(){
         $data=PropertyList::inRandomOrder()->take(9)->get();
-        $data2=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        $data2=PropertyList::orderBy("id", 'desc')->take(3)->get();
     	return view('websites.pages.properties',['mydata'=>$data2,'data'=>$data]);
     }
     public function singleproperty($id){
@@ -36,11 +36,11 @@ class HomeController extends Controller
         return view('websites.pages.singleproperty')->with('mydata',$data);
     }
     public function news(){
-        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
     	return view('websites.pages.news',['mydata'=>$data]);
     }
     public function contact(){
-        $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+        $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
         return view('websites.pages.contact',['mydata'=>$data]);
     }
     public function admin(){
