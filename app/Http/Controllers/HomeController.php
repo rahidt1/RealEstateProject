@@ -33,7 +33,8 @@ class HomeController extends Controller
     }
     public function singleproperty($id){
         $data=PropertyList::where('id',$id)->first();
-        return view('websites.pages.singleproperty')->with('mydata',$data);
+        $data2=PropertyList::orderBy("id", 'desc')->take(3)->get();
+        return view('websites.pages.singleproperty',['mydata'=>$data,'data'=>$data2]);
     }
     public function news(){
         $data=PropertyList::orderBy("id", 'desc')->take(3)->get();

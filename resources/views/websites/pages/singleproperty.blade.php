@@ -40,11 +40,11 @@
 								<li><a href="{{ route('registeruser') }}">Join Us</a></li>
 							</ul>
 						</nav>
-						<div class="phone_num ml-auto">
+{{-- 						<div class="phone_num ml-auto">
 							<div class="phone_num_inner">
 								<img src="{{ asset('/webstyle/images/phone.png') }}" alt=""><span>652-345 3222 11</span>
 							</div>
-						</div>
+						</div> --}}
 						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 
 	<!-- Home Search -->
 	<div><br><br></div>
-	<div class="home_search">
+{{-- 	<div class="home_search">
 		<div class="container">
 			<div class="row">
 				<div class="col">
@@ -158,7 +158,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 
 	<!-- Intro -->
 
@@ -168,7 +168,7 @@
 				<div class="col">
 					<div class="intro_content d-flex flex-lg-row flex-column align-items-start justify-content-start">
 						<div class="intro_title_container">
-							<div class="intro_title">{{ $data->propertyname }}</div>
+							<div class="intro_title">{{ $mydata->propertyname }}</div>
 							<div class="intro_tags">
 								<ul>
 									<li><a href="#">Hottub</a></li>
@@ -181,7 +181,7 @@
 						</div>
 						<div class="intro_price_container ml-lg-auto d-flex flex-column align-items-start justify-content-center">
 							<div>For Sale</div>
-							<div class="intro_price">${{ $data->price }}</div>
+							<div class="intro_price">${{ $mydata->price }}</div>
 						</div>
 					</div>
 				</div>
@@ -197,7 +197,7 @@
 				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
 				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
 				
-				<div class="owl-item"><img src="{{ URL::to('property/'.$data->image)}}" alt=""></div>
+				<div class="owl-item"><img src="{{ URL::to('property/'.$mydata->image)}}" alt=""></div>
 				 
 
 			</div>
@@ -302,9 +302,9 @@
 						<div class="sidebar_realtor">
 							<div class="sidebar_realtor_image"><img src="{{ asset('/webstyle/images/realtor_3.jpg') }}" alt=""></div>
 							<div class="sidebar_realtor_body text-center">
-								<div class="sidebar_realtor_title"><a href="#">{{ $data->agentname }}</a></div>
-								<div class="sidebar_realtor_subtitle">{{ $data->agentrole }}</div>
-								<div class="sidebar_realtor_phone"><span>call me: </span>{{ $data->agentphone }}</div>
+								<div class="sidebar_realtor_title"><a href="#">{{ $mydata->agentname }}</a></div>
+								<div class="sidebar_realtor_subtitle">{{ $mydata->agentrole }}</div>
+								<div class="sidebar_realtor_phone"><span>call me: </span>{{ $mydata->agentphone }}</div>
 								<div class="realtor_link"><a href="#">+</a></div>
 							</div>
 						</div>
@@ -326,7 +326,7 @@
 									<div class="property_room_title">Bedrooms</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_1.png') }}" alt=""></div>
-										<div class="room_num">{{ $data->bed }}</div>
+										<div class="room_num">{{ $mydata->bed }}</div>
 									</div>
 								</div>
 
@@ -335,7 +335,7 @@
 									<div class="property_room_title">Bathrooms</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_2.png') }}" alt=""></div>
-										<div class="room_num">{{ $data->bath }}</div>
+										<div class="room_num">{{ $mydata->bath }}</div>
 									</div>
 								</div>
 
@@ -344,7 +344,7 @@
 									<div class="property_room_title">Area (Sq. Ft.)</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_3.png') }}" alt=""></div>
-										<div class="room_num">{{ $data->area }}</div>
+										<div class="room_num">{{ $mydata->area }}</div>
 									</div>
 								</div>
 
@@ -353,7 +353,7 @@
 									<div class="property_room_title">Patio</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_4.png') }}" alt=""></div>
-										<div class="room_num">{{ $data->patio }}</div>
+										<div class="room_num">{{ $mydata->patio }}</div>
 									</div>
 								</div>
 
@@ -362,7 +362,7 @@
 									<div class="property_room_title">Garage</div>
 									<div class="property_room_content d-flex flex-row align-items-center justify-content-start">
 										<div class="room_icon"><img src="{{ asset('/webstyle/images/room_5.png') }}" alt=""></div>
-										<div class="room_num">{{ $data->garage }}</div>
+										<div class="room_num">{{ $mydata->garage }}</div>
 									</div>
 								</div>
 
@@ -374,7 +374,7 @@
 						<div class="property_description">
 							<div class="property_title">Description</div>
 							<div class="property_text property_text_2">
-								<p>{{ $data->description }}</p>
+								<p>{{ $mydata->description }}</p>
 							</div>
 						</div>
 
@@ -457,36 +457,19 @@
 							<div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
 						</div>
 					</div>
+					@foreach ($data as $d)
+					
 					<div class="col-lg-3 footer_col">
 						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
 							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_1.jpg') }}" alt=""></div></div>
 							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Sea view property</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
+								<div class="footer_latest_location">{{$d->propertyname}}</div>
+								<div class="footer_latest_name"><a href="{{route('singleproperty',$d->id)}}">{{$d->view}}</a></div>
+								<div class="footer_latest_price">${{$d->price}}</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 footer_col">
-						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_2.jpg') }}" alt=""></div></div>
-							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Town House</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 footer_col">
-						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_3.jpg') }}" alt=""></div></div>
-							<div class="footer_latest_content">
-								<div class="footer_latest_location">Miami</div>
-								<div class="footer_latest_name"><a href="#">Modern House</a></div>
-								<div class="footer_latest_price">$ 1. 234 981</div>
-							</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
