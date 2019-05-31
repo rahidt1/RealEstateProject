@@ -156,8 +156,10 @@
                                                         </li> -->
                                                         <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
                                                         </li>
+                                                        @if(Session::get('userrole')=='admin')
                                                         <li><a href="{{ route('addproperty') }}"><span class="icon nalika-diamond author-log-ic"></span>Add Property</a>
                                                         </li>
+                                                        @endif
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
                                                         <li><a href="{{ route('login') }}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
