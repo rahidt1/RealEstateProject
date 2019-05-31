@@ -602,12 +602,12 @@ section
 .home_search_container
 {
 	position: absolute;
-	top: -112px;
-	left: 15px;
-	width: calc(100% - 30px);
-	height: 90px;
-	border-radius: 45px;
-	padding: 10px;
+	top: -101px;
+	left: 493px;
+	width: 65%;
+	height: 91px;
+	border-radius: 38px;
+	padding: 7px;
 	background: rgba(255,255,255,0.33);
 }
 .home_search_content
@@ -624,14 +624,14 @@ section
 }
 .search_form_content
 {
-	width: 100%;
+	width: 849px;
 	height: 100%;
 	padding-left: 14px;
 	padding-right: 11px;
 }
 .search_form_content > div
 {
-	width: 20%;
+	width: 91%;
 	height: 100%;
 	padding-left: 18px;
 	padding-right: 2px;
@@ -1263,12 +1263,12 @@ section
 .newsletter_input
 {
 	width: 100%;
-	height: 72px;
+	height: 69px;
 	border-radius: 36px;
 	background: #FFFFFF;
 	border: none;
 	outline: none;
-	padding-left: 45px;
+	padding-left: 15px;
 }
 .newsletter_input::-webkit-input-placeholder
 {

@@ -5,7 +5,7 @@
 				<div class="home_search_content">
 					<form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
 						<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap" id="rent">
-							<div>
+{{-- 							<div>
 								<select class="search_form_select">
 									<option disabled selected>For rent</option>
 									@foreach($rent as $d)
@@ -47,7 +47,10 @@
 									<option>2</option>
 									<option>3</option>
 								</select>
-							</div>
+							</div> --}}
+						<div class="newsletter_form_container">
+								<input type="text" class="newsletter_input" placeholder="Search for Home">
+						</div>
 						</div>
 						<button class="search_form_button ml-auto">search</button>
 					</form>
