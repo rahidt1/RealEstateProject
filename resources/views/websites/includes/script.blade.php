@@ -16,3 +16,29 @@
 <script src="{{ asset('/webstyle/js/news.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
 <script src="{{ asset('/webstyle/js/contact.js') }}"></script>
+
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> --}}
+{{-- <script>
+	$(document).ready(function () {
+		$('#rent').on('change', function() {
+		  var div_id = this.value ;
+		  $.ajax({
+		  	url:"http://127.0.0.1:8000/district/"+div_id,
+		  	success:function(res){
+		  		var dis = res.data;
+		  		var temp = '';
+		  		for(var i=0; i<dis.length; i++){
+		  			var dis_name = dis[i].name;
+		  			var dis_id = dis[i].id;
+		  			if(i==0){
+		  				temp = '<option>Select District</option>';
+		  			}
+		  			temp+='<option value="'+dis_id+'">'+dis_name+'</option>';
+		  		}
+		  		$('#district').html(temp);
+		  		//console.log(temp);
+		  	}
+		  })
+		});
+	});
+</script> --}}

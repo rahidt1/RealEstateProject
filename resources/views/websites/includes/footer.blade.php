@@ -14,7 +14,7 @@
 							<div class="footer_about_text">Donec in tempus leo. Aenean ultricies mauris sed quam lacinia lobortis. Cras ut vestibulum enim, in gravida nulla. Curab itur ornare nisl at sagittis cursus.</div>
 						</div>
 					</div>
-					@foreach ($data as $d)
+					@foreach ($mydata as $d)
 					
 					<div class="col-lg-3 footer_col">
 						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">

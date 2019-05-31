@@ -6,6 +6,7 @@ use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
 use App\User;
 use App\PropertyList;
+use App\Rent;
 use Session;
 Use Image;
 use App\ImageModel;
@@ -18,27 +19,29 @@ class HomeController extends Controller
 {
     public function home(){
         $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
-    	return view('websites.pages.home',['data'=>$data]);
+        $rent = Rent::all();
+    	return view('websites.pages.home',['mydata'=>$data,'rent'=>$rent]);
     }
     public function about(){
         $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
-    	return view('websites.pages.about',['data'=>$data]);
+    	return view('websites.pages.about',['mydata'=>$data]);
     }
     public function properties(){
         $data=PropertyList::inRandomOrder()->take(9)->get();
-    	return view('websites.pages.properties',['data'=>$data]);
+        $data2=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
+    	return view('websites.pages.properties',['mydata'=>$data2,'data'=>$data]);
     }
     public function singleproperty($id){
         $data=PropertyList::where('id',$id)->first();
-        return view('websites.pages.singleproperty')->with('data',$data);
+        return view('websites.pages.singleproperty')->with('mydata',$data);
     }
     public function news(){
         $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
-    	return view('websites.pages.news',['data'=>$data]);
+    	return view('websites.pages.news',['mydata'=>$data]);
     }
     public function contact(){
         $data=PropertyList::orderBy("created_at", 'desc')->take(3)->get();
-        return view('websites.pages.contact',['data'=>$data]);
+        return view('websites.pages.contact',['mydata'=>$data]);
     }
     public function admin(){
         return view('admins.pages.home');
