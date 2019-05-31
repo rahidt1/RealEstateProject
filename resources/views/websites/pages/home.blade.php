@@ -16,7 +16,7 @@
 							<div class="row">
 								<div class="col">
 									<div class="slide_content">
-										<div class="home_subtitle">super offer</div>
+										<div class="home_subtitle">Super Offer</div>
 										<div class="home_title">Villa with sea view</div>
 										<div class="home_details">
 											<ul class="home_details_list d-flex flex-row align-items-center justify-content-start">
@@ -138,7 +138,7 @@
 						<div class="owl-carousel owl-theme recent_slider">
 							
 							<!-- Slide -->
-							@foreach ($data as $d)
+							@foreach ($mydata as $d)
 								
 							
 							<div class="owl-item">
@@ -154,9 +154,9 @@
 											<div class="recent_item_price">${{$d->price}}</div>
 										</div>
 										<div class="recent_item_footer d-flex flex-row align-items-center justify-content-start">
-											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_1.png') }}" alt=""></div><span>650 Ftsq</span></div>
-											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_2.png') }}" alt=""></div><span>3 Bedrooms</span></div>
-											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_3.png') }}" alt=""></div><span>3 Bathrooms</span></div>
+											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_1.png') }}" alt=""></div><span>{{$d->area}} Sq. Ft.</span></div>
+											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_2.png') }}" alt=""></div><span>{{$d->bed}} Bedrooms</span></div>
+											<div><div class="recent_icon"><img src="{{ asset('/webstyle/images/icon_3.png') }}" alt=""></div><span>{{$d->bath}} Bathrooms</span></div>
 										</div>
 									</div>
 								</div>

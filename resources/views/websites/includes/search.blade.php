@@ -4,12 +4,13 @@
 			<div class="home_search_container">
 				<div class="home_search_content">
 					<form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
-						<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap">
+						<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap" id="rent">
 							<div>
 								<select class="search_form_select">
 									<option disabled selected>For rent</option>
-									<option>Yes</option>
-									<option>No</option>
+									@foreach($rent as $d)
+										<option value="{{ $d->id }}">{{ $d->rent }}</option>
+									@endforeach
 								</select>
 							</div>
 							<div>
