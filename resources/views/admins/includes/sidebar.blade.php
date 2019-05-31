@@ -40,8 +40,6 @@
                                 <li><a title="User List" href="{{ route('tableuser') }}"><span class="mini-sub-pro">User List</span></a></li>
                                 
                             </ul>
-                    @endif
-                    
                         </li>
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
@@ -67,7 +65,7 @@
                             </ul>
 
                         </li>
-                        
+                        @endif
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
