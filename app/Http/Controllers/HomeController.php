@@ -44,8 +44,11 @@ class HomeController extends Controller
         $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
         return view('websites.pages.contact',['mydata'=>$data]);
     }
-    public function admin(){
-        return view('admins.pages.home');
+
+    /*Admin Panel*/
+    public function admin($id){
+        $data=User::where('id',$id)->first();
+        return view('admins.pages.home',['userdata'=>$data]);
     }
 
 
@@ -206,6 +209,11 @@ class HomeController extends Controller
     public function deleteuser($id){
         User::find($id)->delete();
         return redirect()->route('tableuser');
+    }
+    /*Profile*/
+    public function profile($id){
+        $data=User::where('id',$id)->first();
+        return view ('admins.pages.profile',['userdata'=>$data]);
     }
 
 

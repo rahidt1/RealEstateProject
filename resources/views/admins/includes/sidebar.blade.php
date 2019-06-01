@@ -8,7 +8,7 @@
             <div class="nalika-profile">
                 <div class="profile-dtl">
                     <a href="#"><img src="{{ asset('/adminstyle/img/notification/icon.png') }}" alt="" /></a>
-                    <h2><span class="min-dtn"></span></h2>
+                    <h2>{{ $userdata->name }}<span class="min-dtn"></span></h2>
                 </div>
                 <div class="profile-social-dtl">
                     <ul class="dtl-social">

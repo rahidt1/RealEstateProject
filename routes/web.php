@@ -19,7 +19,7 @@ Route::get('/news','HomeController@news')->name('news');
 Route::get('/contact','HomeController@contact')->name('contact');
 
 Route::group(['middleware' => 'checkloggedin'],function(){
-Route::get('/admin','HomeController@admin')->name('admin');
+Route::get('/admin/{id}','HomeController@admin')->name('admin');
 
 /*Property Section*/
 
@@ -36,6 +36,9 @@ Route::get('/admin/tableuser','HomeController@tableuser')->name('tableuser');
 Route::get('/edituser/{id}','HomeController@edituser')->name('edituser');
 Route::post('/updateuser/{id}','HomeController@updateuser')->name('updateuser');
 Route::get('/deleteuser/{id}','HomeController@deleteuser')->name('deleteuser');
+
+/*Profile*/
+Route::get('/admin/profile/{id}','HomeController@profile')->name('profile');
 });
 
 Route::get('/admin/register','HomeController@registeruser')->name('registeruser');
