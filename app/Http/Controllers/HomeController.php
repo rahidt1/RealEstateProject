@@ -46,9 +46,8 @@ class HomeController extends Controller
     }
 
     /*Admin Panel*/
-    public function admin($id){
-        $data=User::where('id',$id)->first();
-        return view('admins.pages.home',['userdata'=>$data]);
+    public function admin(){
+        return view('admins.pages.home');
     }
 
 
@@ -71,7 +70,6 @@ class HomeController extends Controller
 
         }
         else {
-/*            return redirect()->back()->with('msg','Inavlid email or password');*/
             $request->session()->flash('alert-danger', 'Invalid email/password !');
             return redirect()->route('login');
         }
