@@ -32,7 +32,7 @@ Route::get('/deleteaddproperty/{id}','HomeController@deleteaddproperty')->name('
 
 /*User Section*/
 
-Route::get('/tableuser','HomeController@tableuser')->name('tableuser');
+Route::get('/tableuser/{id}','HomeController@tableuser')->name('tableuser');
 Route::get('/edituser/{id}','HomeController@edituser')->name('edituser');
 Route::post('/updateuser/{id}','HomeController@updateuser')->name('updateuser');
 Route::get('/deleteuser/{id}','HomeController@deleteuser')->name('deleteuser');

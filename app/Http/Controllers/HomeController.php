@@ -191,10 +191,10 @@ class HomeController extends Controller
     public function registeruser(){
         return view('admins.pages.registeruser');
     }
-    public function tableuser(){
-
+    public function tableuser($id){
+        $data2=User::where('id',$id)->first();
         $data=User::all();
-        return view('admins.pages.tableuser',['userdata'=>$data]);
+        return view('admins.pages.tableuser',['alluserdata'=>$data,'userdata'=>$data2]);
     }
     public function storeregisteruser(UserStoreRequest $request){
 
@@ -216,8 +216,9 @@ class HomeController extends Controller
         }
     }
     public function edituser($id){
+        $data=User::where('id',$id)->first();
         $obj=User::find($id);
-        return view('admins.pages.edituser',['edituserlist'=>$obj]);
+        return view('admins.pages.edituser',['edituserlist'=>$obj,'userdata'=>$data]);
     }
     public function updateuser(Request $request,$id){
         $obj = User::find($id);
@@ -233,13 +234,14 @@ class HomeController extends Controller
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableuser');
+            return redirect()->route('tableuser',$obj->id);
         }
 
     }
     public function deleteuser($id){
-        User::find($id)->delete();
-        return redirect()->route('tableuser');
+        $obj=User::where('id',$id)->firstOrFail();
+        $obj->delete();
+        return redirect()->route('tableuser',$obj->id);
     }
     /*Profile*/
     public function profile($id){
