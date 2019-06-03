@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use App\PropertyList;
 use App\Rent;
@@ -47,45 +48,20 @@ class HomeController extends Controller
     }
 
     /*Admin Panel*/
-    public function admin(){
-        return view('admins.pages.home');
+    public function admin($id){
+        $data=User::where('id',$id)->first();
+        return view('admins.pages.home',['userdata'=>$data]);
     }
-
-
-    /*Login Section*/
-
-    public function login(){
-        return view('admins.pages.login');
-    }
-    public function storelogin(Request $request){
-        $email = $request->email;
-        $password = $request->password;
-        $admin = User::where('email','=',$email)
-                            ->where('password','=',$password)
-                            ->first();
-        if($admin){
-            $request->session()->put('username',$admin->name);
-            $request->session()->put('useremail',$admin->email);
-            $request->session()->put('userrole',$admin->role);
-            return redirect()->route('admin');
-
-        }
-        else {
-            $request->session()->flash('alert-danger', 'Invalid email/password !');
-            return redirect()->route('login');
-        }
-
-    }
-
 
     /*Property Section*/
 
     public function addproperty(){
         return view('admins.pages.addproperty');
     }
-        public function tableproperty(){
+    public function tableproperty($id){
+        $data2=User::where('id',$id)->first();
         $data=PropertyList::all();
-        return view('admins.pages.tableproperty',['propertydata'=>$data]);
+        return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
     }
     public function storeaddproperty(Request $request){
         $request->validate([
@@ -128,31 +104,86 @@ class HomeController extends Controller
         }
     }
     public function editaddproperty($id){
+        $data=User::where('id',$id)->first();       
         $obj=PropertyList::find($id);
-        return view('admins.pages.editproperty',['editlist'=>$obj]);
+        return view('admins.pages.editproperty',['editlist'=>$obj,'userdata'=>$data]);
     }
     public function updateaddproperty(Request $request,$id){
         $obj = PropertyList::find($id);
+        $obj->image=$request->image;
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
         $obj->address=$request->address;
         $obj->owner=$request->owner;
         $obj->agentname=$request->agentname;
-        $obj->propertyimages=$request->propertyimages;    
-        $obj->propertydoc=$request->propertydoc;
+        $obj->agentrole=$request->agentrole;
+        $obj->agentphone=$request->agentphone;
+        $obj->area=$request->area;
+        $obj->bed=$request->bed;
+        $obj->bath=$request->bath;
+        $obj->patio=$request->patio;
+        $obj->garage=$request->garage;
+        $obj->description=$request->description;
         
 
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableproperty');
+            return redirect()->route('tableproperty',$obj->id);
         }
 
     }
     public function deleteaddproperty($id){
-        PropertyList::find($id)->delete();
-        return redirect()->route('tableproperty');
+        $obj=PropertyList::where('id',$id)->firstOrFail();
+        $obj->delete();
+        return redirect()->route('tableproperty',$obj->id);
+    }
+
+    /*Search Property*/
+
+    public function search(Request $request){
+        $request->validate([
+            'search' => 'required|min:3',
+        ]);
+        $search = $request->get('search');
+        $data2=PropertyList::orderBy("id", 'desc')->take(3)->get();
+        $data=PropertyList::where('propertyname','like',"%$search%")
+                                ->orWhere('location','like',"%$search%")
+                                ->orWhere('country','like',"%$search%")
+                                ->orWhere('view','like',"%$search%")
+                                ->orWhere('price','<=',"$search")
+                                ->paginate(6);
+        return view('websites.pages.searchproperty',['searchresult'=>$data,'mydata'=>$data2]);
+    }
+
+    /*Login Section*/
+
+    public function login(){
+        return view('admins.pages.login');
+    }
+    public function storelogin(Request $request){
+        $email = $request->email;
+        $password = $request->password;
+        $admin = User::where('email','=',$email)
+                            ->where('password','=',$password)
+                            ->first();
+        if($admin){
+            $request->session()->put('username',$admin->name);
+            $request->session()->put('useremail',$admin->email);
+            $request->session()->put('userrole',$admin->role);
+            return redirect()->route('admin',$admin->id);
+        }
+        else {
+            $request->session()->flash('alert-danger', 'Invalid email/password !');
+            return redirect()->route('login');
+        }
+
+    }
+    public function logout(Request $request){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login');
     }
 
     /*User Section*/
@@ -160,9 +191,10 @@ class HomeController extends Controller
     public function registeruser(){
         return view('admins.pages.registeruser');
     }
-    public function tableuser(){
+    public function tableuser($id){
+        $data2=User::where('id',$id)->first();
         $data=User::all();
-        return view('admins.pages.tableuser',['userdata'=>$data]);
+        return view('admins.pages.tableuser',['alluserdata'=>$data,'userdata'=>$data2]);
     }
     public function storeregisteruser(UserStoreRequest $request){
 
@@ -184,8 +216,9 @@ class HomeController extends Controller
         }
     }
     public function edituser($id){
+        $data=User::where('id',$id)->first();
         $obj=User::find($id);
-        return view('admins.pages.edituser',['edituserlist'=>$obj]);
+        return view('admins.pages.edituser',['edituserlist'=>$obj,'userdata'=>$data]);
     }
     public function updateuser(Request $request,$id){
         $obj = User::find($id);
@@ -201,13 +234,14 @@ class HomeController extends Controller
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableuser');
+            return redirect()->route('tableuser',$obj->id);
         }
 
     }
     public function deleteuser($id){
-        User::find($id)->delete();
-        return redirect()->route('tableuser');
+        $obj=User::where('id',$id)->firstOrFail();
+        $obj->delete();
+        return redirect()->route('tableuser',$obj->id);
     }
     /*Profile*/
     public function profile($id){

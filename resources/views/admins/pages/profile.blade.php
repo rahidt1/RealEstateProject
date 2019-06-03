@@ -18,11 +18,13 @@
         
             <div class="box-body">
                      <div class="col-sm-6">
-                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+
+                      {{-- Template profile image --}}
+                     {{-- <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive">  --}}
                 
-                {{-- <input id="profile-image-upload" class="hidden" type="file">
-                <a href="#"><img src="{{ asset('/adminstyle/img/notification/icon.png') }}" alt="" /></a> --}}
-					<div style="color:#999;" ></div>
+                {{-- <input id="profile-image-upload" class="hidden" type="file"> --}}
+                {{-- <a href="#"><img src="{{ asset('/adminstyle/img/notification/icon.png') }}" alt="" /></a>
+					<div style="color:#999;" ></div> --}}
                 <!--Upload Image Js And Css-->
            
               
@@ -133,7 +135,7 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          <div class="card-footer small text-muted">Last updated at {{ $userdata->updated_at }}</div>
         </div>
 
           			</div>

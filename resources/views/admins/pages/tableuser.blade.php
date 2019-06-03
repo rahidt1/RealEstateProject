@@ -33,7 +33,7 @@
                 </thead>
 
                 <tbody>
-                  @foreach($userdata as $u)
+                  @foreach($alluserdata as $u)
                   <tr>
                     <td>{{ $u->id }}</td>
                     <td>{{ $u->name }}</td>

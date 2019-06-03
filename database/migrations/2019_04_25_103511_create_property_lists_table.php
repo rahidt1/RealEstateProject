@@ -25,8 +25,9 @@ class CreatePropertyListsTable extends Migration
             $table->integer('bath');
             $table->integer('patio');
             $table->integer('garage');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('address');
+            $table->string('country');
             $table->string('owner');
             $table->string('agentname');
             $table->string('agentrole');

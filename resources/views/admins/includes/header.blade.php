@@ -148,13 +148,13 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                             <i class="icon nalika-user nalika-user-rounded header-riht-inf" aria-hidden="true"></i>
-                                                            <span class="admin-name">Tanvir</span>
+                                                            <span class="admin-name">{{ $userdata->name }}</span>
                                                             <i class="icon nalika-down-arrow nalika-angle-dw nalika-icon"></i>
                                                         </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                         <!-- <li><a href="register.html"><span class="icon nalika-home author-log-ic"></span> Register</a>
                                                         </li> -->
-                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
+                                                        <li><a href="{{ route('profile',$userdata->id) }}"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
                                                         </li>
                                                         @if(Session::get('userrole')=='admin')
                                                         <li><a href="{{ route('addproperty') }}"><span class="icon nalika-diamond author-log-ic"></span>Add Property</a>
@@ -162,7 +162,7 @@
                                                         @endif
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>
                                                         </li>
-                                                        <li><a href="{{ route('login') }}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
+                                                        <li><a href="{{ route('logout') }}"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
                                                         </li>
                                                     </ul>
                                                 </li>

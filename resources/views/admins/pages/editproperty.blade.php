@@ -38,6 +38,34 @@
                                 <label>Agent Name</label>
                                 <input type="text" class="form-control" name="agentname" value="{{ $editlist->agentname }}">
                             </div>
+                            <div class="form-group col-lg-6">
+                                <label>Agent Role</label>
+                                <input type="text" class="form-control" name="agentrole" value="{{ $editlist->agentrole }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Agent Phone</label>
+                                <input type="tel" class="form-control" name="agentphone" value="{{ $editlist->agentphone }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Area</label>
+                                <input type="number" class="form-control" name="area" value="{{ $editlist->area }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Bedroom</label>
+                                <input type="number" class="form-control" name="bed" value="{{ $editlist->bed }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Bathroom</label>
+                                <input type="number" class="form-control" name="bath" value="{{ $editlist->bath }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Patio</label>
+                                <input type="number" class="form-control" name="patio" value="{{ $editlist->patio }}">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Garage</label>
+                                <input type="number" class="form-control" name="garage" value="{{ $editlist->garage }}">
+                            </div>
 
                         </div>
                         <div class="text-center">
