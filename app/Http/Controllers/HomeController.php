@@ -27,9 +27,10 @@ class HomeController extends Controller
     	return view('websites.pages.about',['mydata'=>$data]);
     }
     public function properties(){
-        $data=PropertyList::inRandomOrder()->take(9)->get();
+        $data3=PropertyList::all();
+        $data=PropertyList::inRandomOrder()->paginate(9);
         $data2=PropertyList::orderBy("id", 'desc')->take(3)->get();
-    	return view('websites.pages.properties',['mydata'=>$data2,'data'=>$data]);
+    	return view('websites.pages.properties',['mydata'=>$data2,'data'=>$data,'alldata'=>$data3]);
     }
     public function singleproperty($id){
         $data=PropertyList::where('id',$id)->first();

@@ -31,8 +31,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="section_title">Search your dream home</div>
-					<div class="section_subtitle"></div>
+					<div class="section_title">{{ $alldata->count() }} Properties are Available</div>
+					<div class="section_subtitle">Find Your Dream Home</div>
 				</div>
 			</div>
 			<div class="row properties_row">
@@ -62,7 +62,7 @@
 			@endforeach
 
 			</div>
-			<div class="row">
+{{-- 			<div class="row">
 				<div class="col">
 					<div class="pagination">
 						<ul>
@@ -73,7 +73,8 @@
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div> --}}
+			<div >{{$data->links()}}</div>
 		</div>
 	</div>
 
