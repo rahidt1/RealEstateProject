@@ -315,9 +315,9 @@
 				<div class="col-lg-7 offset-lg-1">
 					<div class="property_content">
 						<div class="property_icons">
-							<div class="property_title">Extra Facilities</div>
+							<div class="property_title">Location</div>
 							<div class="property_text property_text_1">
-								<p>Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.</p>
+								<p>{{ $mydata->address }},&nbsp {{ $mydata->location }},&nbsp {{ $mydata->country }}</p>
 							</div>
 							<div class="property_rooms d-flex flex-sm-row flex-column align-items-start justify-content-start">
 
@@ -384,7 +384,7 @@
 							<div class="property_title">Additional Details</div>
 							<div class="details_container">
 								<ul>
-									<li><span>bedroom features: </span>Main Floor Master Bedroom, Walk-In Closet</li>
+									<li><span>Type : </span>{{ $mydata->view }}</li>
 									<li><span>dining area: </span>Breakfast Counter/Bar, Living/Dining Combo</li>
 									<li><span>doors & windows: </span>Bay Window</li>
 									<li><span>entry location: </span>Mid Level</li>

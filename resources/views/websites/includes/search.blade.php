@@ -3,7 +3,7 @@
 		<div class="col">
 			<div class="home_search_container">
 				<div class="home_search_content">
-					<form action="#" class="search_form d-flex flex-row align-items-start justfy-content-start">
+					<form action="{{ route('search') }}" class="search_form d-flex flex-row align-items-start justfy-content-start">
 						<div class="search_form_content d-flex flex-row align-items-start justfy-content-start flex-wrap" id="rent">
 {{-- 							<div>
 								<select class="search_form_select">
@@ -49,7 +49,7 @@
 								</select>
 							</div> --}}
 						<div class="newsletter_form_container">
-								<input type="text" class="newsletter_input" placeholder="Search for Home">
+								<input type="text" name="search" class="newsletter_input" placeholder="Search for Home">
 						</div>
 						</div>
 						<button class="search_form_button ml-auto">search</button>
@@ -59,3 +59,14 @@
 		</div>
 	</div>
 </div>
+        <div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li style="color: red">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>

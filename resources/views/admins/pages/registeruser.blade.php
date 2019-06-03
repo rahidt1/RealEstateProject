@@ -72,7 +72,7 @@
                     </div> 
                     <!-- end .flash-message -->
 
-                <!--  <div>
+{{--                     <div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -82,7 +82,7 @@
                                 </ul>
                             </div>
                         @endif
-                    </div> -->
+                    </div> --}}
 
                     <!-- Server Side Validation -->
                     

@@ -20,14 +20,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
- --}}
+	</div> --}}
+
 	<!-- Home Search -->
 
-	<!-- Home Search	 -->
-	<div class="home_search">
-		<p>heloo</p>
-	</div>
 
 	<!-- Properties -->
 	<div><br><br></div>
@@ -35,7 +31,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="section_title">{{ $alldata->count() }} Properties are Available</div>
+					<div class="section_title">{{ $searchresult->total() }} Result(s) for '{{ request()->input('search') }}'</div>
 					<div class="section_subtitle">Find Your Dream Home</div>
 				</div>
 				<br><br><br><br>
@@ -46,7 +42,7 @@
 			<div class="row properties_row">
 				
 				<!-- Property -->
-			@foreach ($data as $d)
+			@foreach ($searchresult as $d)
 					
 
 				<div class="col-xl-4 col-lg-6 property_col">
@@ -69,21 +65,7 @@
 				</div>
 			@endforeach
 
-			</div>
-{{-- 			<div class="row">
-				<div class="col">
-					<div class="pagination">
-						<ul>
-							<li class="active"><a href="{{route('properties')}}">01.</a></li>
-							<li><a href="{{route('properties')}}">02.</a></li>
-							<li><a href="#">03.</a></li>
-							<li><a href="#">04.</a></li>
-						</ul>
-					</div>
-				</div>
-			</div> --}}
-			<div >{{$data->links()}}</div>
-		</div>
+			
 	</div>
-
+	<div >{{$searchresult->links()}}</div>
 @stop

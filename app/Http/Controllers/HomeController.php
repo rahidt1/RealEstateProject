@@ -51,39 +51,12 @@ class HomeController extends Controller
         return view('admins.pages.home');
     }
 
-
-    /*Login Section*/
-
-    public function login(){
-        return view('admins.pages.login');
-    }
-    public function storelogin(Request $request){
-        $email = $request->email;
-        $password = $request->password;
-        $admin = User::where('email','=',$email)
-                            ->where('password','=',$password)
-                            ->first();
-        if($admin){
-            $request->session()->put('username',$admin->name);
-            $request->session()->put('useremail',$admin->email);
-            $request->session()->put('userrole',$admin->role);
-            return redirect()->route('admin');
-
-        }
-        else {
-            $request->session()->flash('alert-danger', 'Invalid email/password !');
-            return redirect()->route('login');
-        }
-
-    }
-
-
     /*Property Section*/
 
     public function addproperty(){
         return view('admins.pages.addproperty');
     }
-        public function tableproperty(){
+    public function tableproperty(){
         $data=PropertyList::all();
         return view('admins.pages.tableproperty',['propertydata'=>$data]);
     }
@@ -153,6 +126,48 @@ class HomeController extends Controller
     public function deleteaddproperty($id){
         PropertyList::find($id)->delete();
         return redirect()->route('tableproperty');
+    }
+
+    /*Search Property*/
+
+    public function search(Request $request){
+        $request->validate([
+            'search' => 'required|min:3',
+        ]);
+        $search = $request->get('search');
+        $data2=PropertyList::orderBy("id", 'desc')->take(3)->get();
+        $data=PropertyList::where('propertyname','like',"%$search%")
+                                ->orWhere('location','like',"%$search%")
+                                ->orWhere('country','like',"%$search%")
+                                ->orWhere('view','like',"%$search%")
+                                ->orWhere('price','<=',"$search")
+                                ->paginate(6);
+        return view('websites.pages.searchproperty',['searchresult'=>$data,'mydata'=>$data2]);
+    }
+
+    /*Login Section*/
+
+    public function login(){
+        return view('admins.pages.login');
+    }
+    public function storelogin(Request $request){
+        $email = $request->email;
+        $password = $request->password;
+        $admin = User::where('email','=',$email)
+                            ->where('password','=',$password)
+                            ->first();
+        if($admin){
+            $request->session()->put('username',$admin->name);
+            $request->session()->put('useremail',$admin->email);
+            $request->session()->put('userrole',$admin->role);
+            return redirect()->route('admin');
+
+        }
+        else {
+            $request->session()->flash('alert-danger', 'Invalid email/password !');
+            return redirect()->route('login');
+        }
+
     }
 
     /*User Section*/

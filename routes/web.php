@@ -44,6 +44,11 @@ Route::get('/logout','HomeController@logout')->name('logout');
 Route::get('/admin/profile/{id}','HomeController@profile')->name('profile');
 });
 
+/*Search*/
+Route::get('search','HomeController@search')->name('search');
+
+/*Register*/
+
 Route::get('/admin/register','HomeController@registeruser')->name('registeruser');
 Route::post('storeregisteruser','HomeController@storeregisteruser')->name('storeregisteruser');
 
