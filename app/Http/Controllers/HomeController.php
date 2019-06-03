@@ -48,8 +48,9 @@ class HomeController extends Controller
     }
 
     /*Admin Panel*/
-    public function admin(){
-        return view('admins.pages.home');
+    public function admin($id){
+        $data=User::where('id',$id)->first();
+        return view('admins.pages.home',['userdata'=>$data]);
     }
 
     /*Property Section*/
@@ -57,9 +58,10 @@ class HomeController extends Controller
     public function addproperty(){
         return view('admins.pages.addproperty');
     }
-    public function tableproperty(){
+    public function tableproperty($id){
+        $data2=User::where('id',$id)->first();
         $data=PropertyList::all();
-        return view('admins.pages.tableproperty',['propertydata'=>$data]);
+        return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
     }
     public function storeaddproperty(Request $request){
         $request->validate([
@@ -102,31 +104,40 @@ class HomeController extends Controller
         }
     }
     public function editaddproperty($id){
+        $data=User::where('id',$id)->first();       
         $obj=PropertyList::find($id);
-        return view('admins.pages.editproperty',['editlist'=>$obj]);
+        return view('admins.pages.editproperty',['editlist'=>$obj,'userdata'=>$data]);
     }
     public function updateaddproperty(Request $request,$id){
         $obj = PropertyList::find($id);
+        $obj->image=$request->image;
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
         $obj->address=$request->address;
         $obj->owner=$request->owner;
         $obj->agentname=$request->agentname;
-        $obj->propertyimages=$request->propertyimages;    
-        $obj->propertydoc=$request->propertydoc;
+        $obj->agentrole=$request->agentrole;
+        $obj->agentphone=$request->agentphone;
+        $obj->area=$request->area;
+        $obj->bed=$request->bed;
+        $obj->bath=$request->bath;
+        $obj->patio=$request->patio;
+        $obj->garage=$request->garage;
+        $obj->description=$request->description;
         
 
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableproperty');
+            return redirect()->route('tableproperty',$obj->id);
         }
 
     }
     public function deleteaddproperty($id){
-        PropertyList::find($id)->delete();
-        return redirect()->route('tableproperty');
+        $obj=PropertyList::where('id',$id)->firstOrFail();
+        $obj->delete();
+        return redirect()->route('tableproperty',$obj->id);
     }
 
     /*Search Property*/
@@ -161,7 +172,7 @@ class HomeController extends Controller
             $request->session()->put('username',$admin->name);
             $request->session()->put('useremail',$admin->email);
             $request->session()->put('userrole',$admin->role);
-            return redirect()->route('admin');
+            return redirect()->route('admin',$admin->id);
         }
         else {
             $request->session()->flash('alert-danger', 'Invalid email/password !');
@@ -181,6 +192,7 @@ class HomeController extends Controller
         return view('admins.pages.registeruser');
     }
     public function tableuser(){
+
         $data=User::all();
         return view('admins.pages.tableuser',['userdata'=>$data]);
     }

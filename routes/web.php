@@ -19,12 +19,12 @@ Route::get('/news','HomeController@news')->name('news');
 Route::get('/contact','HomeController@contact')->name('contact');
 
 Route::group(['middleware' => 'checkloggedin'],function(){
-Route::get('/admin','HomeController@admin')->name('admin');
+Route::get('/admin/{id}','HomeController@admin')->name('admin');
 
 /*Property Section*/
 
-Route::get('/admin/addproperty','HomeController@addproperty')->name('addproperty');
-Route::get('/admin/tableproperty','HomeController@tableproperty')->name('tableproperty');
+Route::get('/addproperty','HomeController@addproperty')->name('addproperty');
+Route::get('/tableproperty/{id}','HomeController@tableproperty')->name('tableproperty');
 Route::post('/storeaddproperty','HomeController@storeaddproperty')->name('storeaddproperty');
 Route::get('/editaddproperty/{id}','HomeController@editaddproperty')->name('editaddproperty');
 Route::post('/updateaddproperty/{id}','HomeController@updateaddproperty')->name('updateaddproperty');
@@ -32,7 +32,7 @@ Route::get('/deleteaddproperty/{id}','HomeController@deleteaddproperty')->name('
 
 /*User Section*/
 
-Route::get('/admin/tableuser','HomeController@tableuser')->name('tableuser');
+Route::get('/tableuser','HomeController@tableuser')->name('tableuser');
 Route::get('/edituser/{id}','HomeController@edituser')->name('edituser');
 Route::post('/updateuser/{id}','HomeController@updateuser')->name('updateuser');
 Route::get('/deleteuser/{id}','HomeController@deleteuser')->name('deleteuser');
@@ -41,7 +41,7 @@ Route::get('/deleteuser/{id}','HomeController@deleteuser')->name('deleteuser');
 Route::get('/logout','HomeController@logout')->name('logout');
 
 /*Profile*/
-Route::get('/admin/profile/{id}','HomeController@profile')->name('profile');
+Route::get('/profile/{id}','HomeController@profile')->name('profile');
 });
 
 /*Search*/
@@ -49,13 +49,13 @@ Route::get('search','HomeController@search')->name('search');
 
 /*Register*/
 
-Route::get('/admin/register','HomeController@registeruser')->name('registeruser');
+Route::get('/register','HomeController@registeruser')->name('registeruser');
 Route::post('storeregisteruser','HomeController@storeregisteruser')->name('storeregisteruser');
 
 
 /*Login Section*/
 
-Route::get('/admin/login','HomeController@login')->name('login');
+Route::get('/login','HomeController@login')->name('login');
 Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 
 /*Logout*/
