@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Pagination\Paginator;
 use App\Http\Requests\UserStoreRequest;
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use App\PropertyList;
 use App\Rent;
@@ -161,13 +162,17 @@ class HomeController extends Controller
             $request->session()->put('useremail',$admin->email);
             $request->session()->put('userrole',$admin->role);
             return redirect()->route('admin');
-
         }
         else {
             $request->session()->flash('alert-danger', 'Invalid email/password !');
             return redirect()->route('login');
         }
 
+    }
+    public function logout(Request $request){
+        Auth::logout();
+        Session::flush();
+        return redirect()->route('login');
     }
 
     /*User Section*/

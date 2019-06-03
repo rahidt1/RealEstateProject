@@ -39,7 +39,7 @@
                   @foreach($propertydata as $d)
                   <tr>
                     <td>{{ $d->id }}</td>
-                    <td>{{ $d->propertyname }}</td>
+                    <td><a href="{{ route('singleproperty',$d->id) }}">{{ $d->propertyname }}</a></td>
                     <td>{{ $d->location }}</td>
                     <td>{{ $d->price }}</td>
                     <td>{{ $d->address }}</td>

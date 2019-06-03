@@ -25,9 +25,6 @@
 	<!-- Home Search -->
 
 	<!-- Home Search	 -->
-	<div class="home_search">
-		<p>heloo</p>
-	</div>
 
 	<!-- Properties -->
 	<div><br><br></div>

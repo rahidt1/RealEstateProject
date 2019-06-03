@@ -58,7 +58,9 @@ Route::post('storeregisteruser','HomeController@storeregisteruser')->name('store
 Route::get('/admin/login','HomeController@login')->name('login');
 Route::post('storelogin','HomeController@storelogin')->name('storelogin');
 
+/*Logout*/
 
+Route::get('logout', 'HomeController@logout')->name('logout');
 
 /*Single Image*/
 
