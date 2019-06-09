@@ -11,6 +11,10 @@
 |
 */
 
+
+
+
+
 Route::get('/','HomeController@home')->name('home');
 Route::get('/about','HomeController@about')->name('about');
 Route::get('/properties','HomeController@properties')->name('properties');
@@ -30,6 +34,8 @@ Route::get('/editaddproperty/{id}','HomeController@editaddproperty')->name('edit
 Route::post('/updateaddproperty/{id}','HomeController@updateaddproperty')->name('updateaddproperty');
 Route::get('/deleteaddproperty/{id}','HomeController@deleteaddproperty')->name('deleteaddproperty');
 
+Route::get('/propertydetail/{id}','HomeController@propertydetail')->name('propertydetail');
+
 /*User Section*/
 
 Route::get('/tableuser/{id}','HomeController@tableuser')->name('tableuser');
@@ -42,6 +48,8 @@ Route::get('/logout','HomeController@logout')->name('logout');
 
 /*Profile*/
 Route::get('/profile/{id}','HomeController@profile')->name('profile');
+Route::get('/editprofile/{id}','HomeController@editprofile')->name('editprofile');
+Route::post('/updateprofile/{id}','HomeController@updateprofile')->name('updateprofile');
 });
 
 /*Search*/

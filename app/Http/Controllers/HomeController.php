@@ -58,6 +58,11 @@ class HomeController extends Controller
     public function addproperty(){
         return view('admins.pages.addproperty');
     }
+    public function propertydetail($id){
+        $data2=User::where('id',$id)->first();
+        $data=PropertyList::where('id',$id)->first();
+        return view('admins.pages.propertydetail',['propertydata'=>$data,'userdata'=>$data2]);
+    }
     public function tableproperty($id){
         $data2=User::where('id',$id)->first();
         $data=PropertyList::all();
@@ -247,6 +252,29 @@ class HomeController extends Controller
     public function profile($id){
         $data=User::where('id',$id)->first();
         return view ('admins.pages.profile',['userdata'=>$data]);
+    }
+    public function editprofile($id){
+        $data=User::where('id',$id)->first();
+        $obj=User::find($id);
+        return view('admins.pages.editprofile',['editprofilelist'=>$obj,'userdata'=>$data]);
+    }
+    public function updateprofile(Request $request,$id){
+        $obj = User::find($id);
+        $obj->name=$request->name;
+        $obj->email=$request->email;
+        $obj->username=$request->username;
+        $obj->phone=$request->phone;
+        $obj->address=$request->address;
+        $obj->date_of_birth=$request->date_of_birth;
+        $obj->role=$request->role;
+        
+
+        if($obj->save()){
+            
+            $request->session()->flash('alert-success', 'Successfully updated !');
+            return redirect()->route('profile',$obj->id);
+        }
+
     }
 
 
