@@ -15,6 +15,7 @@ use PDF;
 use DB;
 use App\Division;
 use App\District;
+use Newsletter;
 
 class HomeController extends Controller
 {
@@ -372,5 +373,26 @@ class HomeController extends Controller
 
 
 //API & Ajax in ApiController
+
+/*Newsletter*/
+public function subscribe(Request $request){
+
+    $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
+    $rent = Rent::all();  
+    if ( ! Newsletter::isSubscribed($request->email) ) 
+        {
+            Newsletter::subscribe($request->email);
+            $request->session()->flash('alert-success', 'Successfully Subscribed !');
+            return view('websites.pages.home',['mydata'=>$data,'rent'=>$rent]);
+        }
+        
+    else{
+    $request->session()->flash('alert-danger', 'This email is already subscribed');
+    return view('websites.pages.home',['mydata'=>$data,'rent'=>$rent]);
+    }
+
+        
+        
+}
 
 }

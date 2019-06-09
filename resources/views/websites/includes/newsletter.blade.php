@@ -8,10 +8,19 @@
 							<div class="newsletter_title">Are you buying or selling?</div>
 							<div class="newsletter_subtitle">Search your dream home</div>
 						</div>
+                    <div class="flash-message">
+                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                          @if(Session::has('alert-' . $msg))
+
+                          <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="{{ route('login') }}" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                          @endif
+                        @endforeach
+                    </div> 
 						<div class="newsletter_form_container">
-							<form action="#" class="newsletter_form">
-								<input type="email" class="newsletter_input" placeholder="Your e-mail address" required="required">
-								<button class="newsletter_button">subscribe now</button>
+							<form action="{{ route('subscribe') }}" method="post" class="newsletter_form">
+								<input type="text" name="email" class="newsletter_input" placeholder="Your e-mail address" required="required">
+								{{ csrf_field() }}
+								<button type="submit" class="newsletter_button">subscribe now</button>
 							</form>
 						</div>
 					</div>

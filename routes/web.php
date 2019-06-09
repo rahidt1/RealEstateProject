@@ -16,6 +16,9 @@
 
 
 Route::get('/','HomeController@home')->name('home');
+/*Newsletter*/
+Route::post('/','HomeController@subscribe')->name('subscribe');
+
 Route::get('/about','HomeController@about')->name('about');
 Route::get('/properties','HomeController@properties')->name('properties');
 Route::get('/singleproperty/{id}','HomeController@singleproperty')->name('singleproperty');
@@ -95,3 +98,5 @@ Route::get('/district/{division_id}','ApiController@district')->name('district')
 
 Route::get('/ajaxform','ApiController@ajaxform')->name('ajaxform');
 //Route::post('/ajaxadd','ApiController@ajaxadd')->name('ajaxadd');
+
+
