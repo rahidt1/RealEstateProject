@@ -35,6 +35,10 @@
                                 <li><a title="Property List" href="{{ route('tableproperty',$userdata->id) }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Property Detail" href="{{ route('propertydetail',$userdata->id) }}"><span class="mini-sub-pro">Property Detail</span></a></li>
+                                
+                            </ul>
                         
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="User List" href="{{ route('tableuser',$userdata->id) }}"><span class="mini-sub-pro">User List</span></a></li>

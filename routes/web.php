@@ -11,6 +11,10 @@
 |
 */
 
+
+
+
+
 Route::get('/','HomeController@home')->name('home');
 Route::get('/about','HomeController@about')->name('about');
 Route::get('/properties','HomeController@properties')->name('properties');
@@ -29,6 +33,8 @@ Route::post('/storeaddproperty','HomeController@storeaddproperty')->name('storea
 Route::get('/editaddproperty/{id}','HomeController@editaddproperty')->name('editaddproperty');
 Route::post('/updateaddproperty/{id}','HomeController@updateaddproperty')->name('updateaddproperty');
 Route::get('/deleteaddproperty/{id}','HomeController@deleteaddproperty')->name('deleteaddproperty');
+
+Route::get('/propertydetail/{id}','HomeController@propertydetail')->name('propertydetail');
 
 /*User Section*/
 

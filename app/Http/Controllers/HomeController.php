@@ -58,6 +58,11 @@ class HomeController extends Controller
     public function addproperty(){
         return view('admins.pages.addproperty');
     }
+    public function propertydetail($id){
+        $data2=User::where('id',$id)->first();
+        $data=PropertyList::where('id',$id)->first();
+        return view('admins.pages.propertydetail',['propertydata'=>$data,'userdata'=>$data2]);
+    }
     public function tableproperty($id){
         $data2=User::where('id',$id)->first();
         $data=PropertyList::all();
