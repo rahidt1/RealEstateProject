@@ -42,6 +42,8 @@ Route::get('/logout','HomeController@logout')->name('logout');
 
 /*Profile*/
 Route::get('/profile/{id}','HomeController@profile')->name('profile');
+Route::get('/editprofile/{id}','HomeController@editprofile')->name('editprofile');
+Route::post('/updateprofile/{id}','HomeController@updateprofile')->name('updateprofile');
 });
 
 /*Search*/

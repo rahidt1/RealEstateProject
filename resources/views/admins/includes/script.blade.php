@@ -56,7 +56,7 @@
 <script src="{{ asset('/webstyle/plugins/parallax-js-master/parallax.min.js') }}"></script>
 <script src="{{ asset('/webstyle/https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA') }}"></script>
 <script src="{{ asset('/webstyle/js/property.js') }}"></script>
-
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!-- Jquery DataTable -->
 

@@ -36,3 +36,4 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.6/b-html5-1.5.6/r-2.2.2/sc-2.0.0/datatables.min.css"/>
 <!-- MyCSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('/adminstyle/mycss.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('adminstyle/profile.css') }}">

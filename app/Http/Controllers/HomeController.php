@@ -248,6 +248,29 @@ class HomeController extends Controller
         $data=User::where('id',$id)->first();
         return view ('admins.pages.profile',['userdata'=>$data]);
     }
+    public function editprofile($id){
+        $data=User::where('id',$id)->first();
+        $obj=User::find($id);
+        return view('admins.pages.editprofile',['editprofilelist'=>$obj,'userdata'=>$data]);
+    }
+    public function updateprofile(Request $request,$id){
+        $obj = User::find($id);
+        $obj->name=$request->name;
+        $obj->email=$request->email;
+        $obj->username=$request->username;
+        $obj->phone=$request->phone;
+        $obj->address=$request->address;
+        $obj->date_of_birth=$request->date_of_birth;
+        $obj->role=$request->role;
+        
+
+        if($obj->save()){
+            
+            $request->session()->flash('alert-success', 'Successfully updated !');
+            return redirect()->route('profile',$obj->id);
+        }
+
+    }
 
 
     /*Image Upload*/
