@@ -56,8 +56,10 @@ class HomeController extends Controller
 
     /*Property Section*/
 
-    public function addproperty(){
-        return view('admins.pages.addproperty');
+    public function addproperty($id){
+        $data2=User::find($id);
+        $data=PropertyList::all();
+        return view('admins.pages.addproperty',['userdata'=>$data2,'propertydata'=>$data]);
     }
     public function propertydetail($id){
         $data2=User::where('id',$id)->first();
@@ -70,7 +72,7 @@ class HomeController extends Controller
         return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
     }
     public function storeaddproperty(Request $request,$id){
-        $data2=User::where('id',$id)->first();
+        $new=User::find($id);
         $data=PropertyList::all();
         $request->validate([
             'propertyname' => 'required',
@@ -122,7 +124,7 @@ class HomeController extends Controller
         $obj->description=$request->description;
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('tableproperty',['userdata'=>$data2,'mydata'=>$obj,'propertydata'=>$data]);
+            return redirect()->route('tableproperty',['userdata'=>$new,'mydata'=>$obj,'propertydata'=>$data]);
         }
     }
     public function editaddproperty($id){
