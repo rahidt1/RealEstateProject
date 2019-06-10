@@ -19,6 +19,9 @@ use Newsletter;
 
 class HomeController extends Controller
 {
+    public function add(){
+        return view('admins.pages.addproperty2');
+    }
     public function home(){
         $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
         $rent = Rent::all();
@@ -71,17 +74,17 @@ class HomeController extends Controller
         $data=PropertyList::all();
         return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
     }
-    public function storeaddproperty(Request $request,$id){
-        $new=User::find($id);
+    public function storeaddproperty(Request $request){
+        /*$new=User::find($id);*/
         $data=PropertyList::all();
-        $request->validate([
+/*        $request->validate([
             'propertyname' => 'required',
             'location' => 'required',
             'price' => 'required|numeric',
             'address' => 'required',
             'owner' => 'required',
             'agentname' => 'required',
-        ]);
+        ]);*/
 
 
 /*        $image = $request->file('image');
@@ -124,7 +127,9 @@ class HomeController extends Controller
         $obj->description=$request->description;
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('tableproperty',['userdata'=>$new,'mydata'=>$obj,'propertydata'=>$data]);
+            /*return redirect()->route('tableproperty',['userdata'=>$new,'mydata'=>$obj,'propertydata'=>$data]);*/
+
+            return redirect()->back();
         }
     }
     public function editaddproperty($id){

@@ -196,8 +196,9 @@
 				
 				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
 				<div class="owl-item"><img src="{{ asset('/webstyle/images/intro_1.jpg') }}" alt=""></div>
-				
-				<div class="owl-item"><img src="{{ URL::to('property/'.$mydata->image)}}" alt=""></div>
+				{{-- @foreach(json_decode($mydata->image, true) as $image)
+				<div class="owl-item"><img src="{{ URL::to('property/'.$image)}}" alt=""></div>
+				@endforeach --}}
 				 
 
 			</div>

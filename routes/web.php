@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('/add','HomeController@add')->name('add');
 
 
 

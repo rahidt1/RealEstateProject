@@ -52,11 +52,11 @@
                     <h3 style="color: orange">LOGIN PAGE</h3>
                     <p>This is the best app ever!</p>
 
-<!--                     @if(Session::has('msg'))
+  {{--                   @if(Session::has('msg'))
                     <div class="alert alert-danger">
                         {{ Session::get('msg') }}
                     </div>
-                    @endif -->
+                    @endif --}}
 
                     <div class="flash-message">
                         @foreach (['danger', 'warning', 'success', 'info'] as $msg)
