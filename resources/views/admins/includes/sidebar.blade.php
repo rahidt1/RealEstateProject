@@ -60,7 +60,7 @@
                                 
                             </ul>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ route('addproperty') }}"><span class="mini-sub-pro">Register Property</span></a></li>
+                                <li><a title="Google Map" href="{{ route('addproperty',$userdata->id) }}"><span class="mini-sub-pro">Register Property</span></a></li>
                                 
                             </ul>
                                 <ul class="submenu-angle" aria-expanded="false">

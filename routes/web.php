@@ -30,7 +30,7 @@ Route::get('/admin/{id}','HomeController@admin')->name('admin');
 
 /*Property Section*/
 
-Route::get('/addproperty','HomeController@addproperty')->name('addproperty');
+Route::get('/addproperty/{id}','HomeController@addproperty')->name('addproperty');
 Route::get('/tableproperty/{id}','HomeController@tableproperty')->name('tableproperty');
 Route::post('/storeaddproperty','HomeController@storeaddproperty')->name('storeaddproperty');
 Route::get('/editaddproperty/{id}','HomeController@editaddproperty')->name('editaddproperty');
