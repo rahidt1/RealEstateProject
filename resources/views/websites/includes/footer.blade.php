@@ -18,7 +18,7 @@
 					
 					<div class="col-lg-3 footer_col">
 						<div class="footer_latest d-flex flex-row align-items-start justify-content-start">
-							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/footer_latest_1.jpg') }}" alt=""></div></div>
+							<div><div class="footer_latest_image"><img src="{{ asset('/webstyle/images/'.$d->thumbnail) }}" alt=""></div></div>
 							<div class="footer_latest_content">
 								<div class="footer_latest_location">{{$d->propertyname}}</div>
 								<div class="footer_latest_name"><a href="{{route('singleproperty',$d->id)}}">{{$d->view}}</a></div>

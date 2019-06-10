@@ -19,9 +19,7 @@ use Newsletter;
 
 class HomeController extends Controller
 {
-    public function add(){
-        return view('admins.pages.addproperty2');
-    }
+
     public function home(){
         $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
         $rent = Rent::all();
@@ -59,10 +57,8 @@ class HomeController extends Controller
 
     /*Property Section*/
 
-    public function addproperty($id){
-        $data2=User::find($id);
-        $data=PropertyList::all();
-        return view('admins.pages.addproperty',['userdata'=>$data2,'propertydata'=>$data]);
+    public function addproperty(){
+        return view('admins.pages.addproperty');
     }
     public function propertydetail($id){
         $data2=User::where('id',$id)->first();
@@ -77,25 +73,34 @@ class HomeController extends Controller
     public function storeaddproperty(Request $request){
         /*$new=User::find($id);*/
         $data=PropertyList::all();
-/*        $request->validate([
+        $request->validate([
             'propertyname' => 'required',
             'location' => 'required',
             'price' => 'required|numeric',
             'address' => 'required',
             'owner' => 'required',
             'agentname' => 'required',
-        ]);*/
+        ]);
 
-
-/*        $image = $request->file('image');
-        $filename = time().'.'.$image->getClientOriginalExtension();
+        /*Image*/
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalName();
      
    
         $destinationPath = public_path('/property');
         $img = Image::make($image->getRealPath());
-        $img->save($destinationPath.'/'.$filename);*/
+        $img->save($destinationPath.'/'.$filename);
 
-        if($request->hasfile('image')){
+        /*Thumbnail*/
+        $thumbnail = $request->file('thumbnail');
+        $filename2 = $thumbnail->getClientOriginalName();
+     
+   
+        $destinationPath = public_path('/webstyle/images');
+        $img = Image::make($thumbnail->getRealPath());
+        $img->save($destinationPath.'/'.$filename2);
+
+        /*if($request->hasfile('image')){
 
             foreach($request->file('image') as $image)
             {
@@ -103,18 +108,20 @@ class HomeController extends Controller
                 $image->move(public_path().'/property/', $name);  
                 $data[] = $name;  
             }
-         }
+         }*/
 
         
 
 
         $obj = new PropertyList();
-        /*$obj->image = $filename;*/
-        $obj->image =json_encode($data);
+        $obj->image = $filename;
+        $obj->thumbnail = $filename2;
+        //$obj->image =json_encode($data);
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
         $obj->address=$request->address;
+        $obj->view=$request->view;
         $obj->owner=$request->owner;
         $obj->agentname=$request->agentname;
         $obj->agentrole=$request->agentrole;

@@ -49,7 +49,7 @@
 				<div class="col-xl-4 col-lg-6 property_col">
 					<div class="property">
 						<div class="property_image">
-							<img src="{{ asset('/webstyle/images/property_1.jpg') }}" alt="">
+							<img src="{{ asset('/webstyle/images/'.$d->thumbnail) }}" alt="">
 							<div class="tag_featured property_tag"><a href="#">{{ $d->id }}</a></div>
 						</div>
 						<div class="property_body text-center">

@@ -141,15 +141,15 @@
 							@foreach ($mydata as $d)
 								
 							
-							<div class="owl-item">
+							<div class="owl-item" >
 								<div class="recent_item">
 									<div class="recent_item_inner">
 										<div class="recent_item_image">
-											<img src="{{ asset('/webstyle/images/'.$d->image) }}" alt="">
+											<img src="{{ asset('/webstyle/images/'.$d->thumbnail) }}" alt="">
 											<div class="tag_featured property_tag"><a href="{{ route('singleproperty',$d->id) }}">{{$d->id}}</a></div>
 										</div>
 										<div class="recent_item_body text-center">
-											<div class="recent_item_location">{{$d->propertyname}}</div>
+											<div class="recent_item_location"><a href="{{route('singleproperty',$d->id)}}">{{$d->propertyname}}</a></div>
 											<div class="recent_item_title"><a href="{{route('singleproperty',$d->id)}}">{{$d->view}}</a></div>
 											<div class="recent_item_price">${{$d->price}}</div>
 										</div>

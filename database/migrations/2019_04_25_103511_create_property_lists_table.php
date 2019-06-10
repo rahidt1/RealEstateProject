@@ -19,7 +19,7 @@ class CreatePropertyListsTable extends Migration
             $table->string('location')->nullable();
             $table->integer('price')->nullable();
             $table->string('view')->nullable();
-            $table->string('image')->nullable();
+            $table->text('image');
             $table->string('thumbnail')->nullable();
             $table->integer('area')->nullable();
             $table->integer('bed')->nullable();
