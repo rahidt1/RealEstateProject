@@ -16,22 +16,23 @@ class CreatePropertyListsTable extends Migration
         Schema::create('property_lists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('propertyname');
-            $table->string('location');
-            $table->integer('price');
-            $table->string('view');
+            $table->string('location')->nullable();
+            $table->integer('price')->nullable();
+            $table->string('view')->nullable();
             $table->string('image')->nullable();
-            $table->integer('area');
-            $table->integer('bed');
-            $table->integer('bath');
-            $table->integer('patio');
-            $table->integer('garage');
-            $table->text('description')->nullable();
-            $table->string('address');
-            $table->string('country');
-            $table->string('owner');
-            $table->string('agentname');
-            $table->string('agentrole');
-            $table->string('agentphone');
+            $table->string('thumbnail')->nullable();
+            $table->integer('area')->nullable();
+            $table->integer('bed')->nullable();
+            $table->integer('bath')->nullable();
+            $table->integer('patio')->nullable();
+            $table->integer('garage')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('owner')->nullable();
+            $table->string('agentname')->nullable();
+            $table->string('agentrole')->nullable();
+            $table->string('agentphone')->nullable();
             $table->timestamps();
         });
     }
