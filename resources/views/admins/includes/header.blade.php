@@ -157,7 +157,7 @@
                                                         <li><a href="{{ route('profile',$userdata->id) }}"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
                                                         </li>
                                                         @if(Session::get('userrole')=='admin')
-                                                        <li><a href="{{ route('addproperty') }}"><span class="icon nalika-diamond author-log-ic"></span>Add Property</a>
+                                                        <li><a href="{{ route('addproperty',$userdata->id) }}"><span class="icon nalika-diamond author-log-ic"></span>Add Property</a>
                                                         </li>
                                                         @endif
                                                         <li><a href="#"><span class="icon nalika-settings author-log-ic"></span> Settings</a>

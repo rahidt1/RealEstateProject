@@ -69,7 +69,9 @@ class HomeController extends Controller
         $data=PropertyList::all();
         return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
     }
-    public function storeaddproperty(Request $request){
+    public function storeaddproperty(Request $request,$id){
+        $data2=User::where('id',$id)->first();
+        $data=PropertyList::all();
         $request->validate([
             'propertyname' => 'required',
             'location' => 'required',
@@ -79,17 +81,31 @@ class HomeController extends Controller
             'agentname' => 'required',
         ]);
 
-        $image = $request->file('image');
+
+/*        $image = $request->file('image');
         $filename = time().'.'.$image->getClientOriginalExtension();
      
    
         $destinationPath = public_path('/property');
         $img = Image::make($image->getRealPath());
-        $img->save($destinationPath.'/'.$filename);
+        $img->save($destinationPath.'/'.$filename);*/
+
+        if($request->hasfile('image')){
+
+            foreach($request->file('image') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/property/', $name);  
+                $data[] = $name;  
+            }
+         }
+
+        
 
 
         $obj = new PropertyList();
-        $obj->image = $filename;
+        /*$obj->image = $filename;*/
+        $obj->image =json_encode($data);
         $obj->propertyname=$request->propertyname;
         $obj->location=$request->location;
         $obj->price=$request->price;
@@ -106,7 +122,7 @@ class HomeController extends Controller
         $obj->description=$request->description;
         if($obj->save()){
             $request->session()->flash('alert-success', 'Successfully Registered !');
-            return redirect()->route('tableproperty');
+            return redirect()->route('tableproperty',['userdata'=>$data2,'mydata'=>$obj,'propertydata'=>$data]);
         }
     }
     public function editaddproperty($id){

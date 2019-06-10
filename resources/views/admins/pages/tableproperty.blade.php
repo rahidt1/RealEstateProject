@@ -30,7 +30,6 @@
                     <th>Address</th>
                     <th>Owner</th>
                     <th>Agent Name</th>
-                    <th>Property Images</th>
                     <th class="text-center">ACTION</th>
                   </tr>
                 </thead>
@@ -45,7 +44,6 @@
                     <td>{{ $d->address }}</td>
                     <td>{{ $d->owner }}</td>
                     <td>{{ $d->agentname }}</td>
-                    <td><img class="img" src="/propery/{{ $d->image }}"></td>
                     <td class="text-center">
 
                       <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/editaddproperty/'.$d->id) }}" ><i class="fas fa-user-edit"></i></a> 
