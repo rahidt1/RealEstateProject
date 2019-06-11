@@ -74,9 +74,22 @@ class HomeController extends Controller
         return view('admins.pages.addproperty');
     }
     public function propertydetail($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data2=User::where('id',$id)->first();
         $data=PropertyList::where('id',$id)->first();
-        return view('admins.pages.propertydetail',['propertydata'=>$data,'userdata'=>$data2]);
+        return view('admins.pages.propertydetail',['propertydata'=>$data,'userdata'=>$data2])->with('view', json_encode($array));
     }
     public function tableproperty($id){
 
@@ -166,11 +179,37 @@ class HomeController extends Controller
         }
     }
     public function editaddproperty($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data=User::where('id',$id)->first();       
         $obj=PropertyList::find($id);
-        return view('admins.pages.editproperty',['editlist'=>$obj,'userdata'=>$data]);
+        return view('admins.pages.editproperty',['editlist'=>$obj,'userdata'=>$data])->with('view', json_encode($array));
     }
     public function updateaddproperty(Request $request,$id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $obj = PropertyList::find($id);
         $obj->image=$request->image;
         $obj->propertyname=$request->propertyname;
@@ -192,7 +231,7 @@ class HomeController extends Controller
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableproperty',$obj->id);
+            return redirect()->route('tableproperty',$obj->id)->with('view', json_encode($array));
         }
 
     }
@@ -291,11 +330,37 @@ class HomeController extends Controller
         }
     }
     public function edituser($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data=User::where('id',$id)->first();
         $obj=User::find($id);
-        return view('admins.pages.edituser',['edituserlist'=>$obj,'userdata'=>$data]);
+        return view('admins.pages.edituser',['edituserlist'=>$obj,'userdata'=>$data])->with('view', json_encode($array));
     }
     public function updateuser(Request $request,$id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+        
         $obj = User::find($id);
         $obj->name=$request->name;
         $obj->email=$request->email;
@@ -309,7 +374,7 @@ class HomeController extends Controller
         if($obj->save()){
             
             $request->session()->flash('alert-success', 'Successfully updated !');
-            return redirect()->route('tableuser',$obj->id);
+            return redirect()->route('tableuser',$obj->id)->with('view', json_encode($array));
         }
 
     }
