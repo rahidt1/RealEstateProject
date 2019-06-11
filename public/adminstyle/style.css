@@ -1696,7 +1696,7 @@ ul.tab-custon-design li.active a, ul.tab-review-design li.active a{
 }
 .panel-body {
     padding: 15px;
-	background:#fff;
+	background:#1b2a47;
 }
 .m-t-xl {
     margin-top: 40px;
@@ -2896,7 +2896,7 @@ ul.mailbox-list li:hover a, ul.h-list li:hover a {
 }
 .panel-body p {
     font-size: 14px;
-    color: #444;
+    color: red;
     line-height: 22px;
 }
 .btn-primary.ft-compse {
