@@ -51,8 +51,21 @@ class HomeController extends Controller
 
     /*Admin Panel*/
     public function admin($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data=User::where('id',$id)->first();
-        return view('admins.pages.home',['userdata'=>$data]);
+        return view('admins.pages.home',['userdata'=>$data])->with('view', json_encode($array));
     }
 
     /*Property Section*/
@@ -66,9 +79,22 @@ class HomeController extends Controller
         return view('admins.pages.propertydetail',['propertydata'=>$data,'userdata'=>$data2]);
     }
     public function tableproperty($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data2=User::where('id',$id)->first();
         $data=PropertyList::all();
-        return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2]);
+        return view('admins.pages.tableproperty',['propertydata'=>$data,'userdata'=>$data2])->with('view', json_encode($array));
     }
     public function storeaddproperty(Request $request){
         /*$new=User::find($id);*/
@@ -228,9 +254,22 @@ class HomeController extends Controller
         return view('admins.pages.registeruser');
     }
     public function tableuser($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data2=User::where('id',$id)->first();
         $data=User::all();
-        return view('admins.pages.tableuser',['alluserdata'=>$data,'userdata'=>$data2]);
+        return view('admins.pages.tableuser',['alluserdata'=>$data,'userdata'=>$data2])->with('view', json_encode($array));
     }
     public function storeregisteruser(UserStoreRequest $request){
 
@@ -281,8 +320,21 @@ class HomeController extends Controller
     }
     /*Profile*/
     public function profile($id){
+
+        $chart = DB::table('property_lists')
+                   ->select(
+                    DB::raw('view as view'),
+                    DB::raw('count(*) as number'))
+                   ->groupBy('view')
+                   ->get();
+        $array[] = ['View', 'Number'];
+         foreach($chart as $key => $value)
+         {
+          $array[++$key] = [$value->view, $value->number];
+         }
+
         $data=User::where('id',$id)->first();
-        return view ('admins.pages.profile',['userdata'=>$data]);
+        return view ('admins.pages.profile',['userdata'=>$data])->with('view', json_encode($array));
     }
     public function editprofile($id){
         $data=User::where('id',$id)->first();

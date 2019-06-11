@@ -37,3 +37,32 @@
 <!-- MyCSS -->
 <link rel="stylesheet" type="text/css" href="{{ asset('/adminstyle/mycss.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('adminstyle/profile.css') }}">
+
+
+{{-- Google Chart --}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
+  <style type="text/css">
+   .box{
+    width:800px;
+    margin:0 auto;
+   }
+  </style>
+  <script type="text/javascript">
+   var analytics = <?php echo $view; ?>
+
+   google.charts.load('current', {'packages':['corechart']});
+
+   google.charts.setOnLoadCallback(drawChart);
+
+   function drawChart()
+   {
+    var data = google.visualization.arrayToDataTable(analytics);
+    var options = {
+     title : 'Percentage of Property with Different View'
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+    chart.draw(data, options);
+   }
+  </script>
