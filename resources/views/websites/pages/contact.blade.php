@@ -102,7 +102,7 @@
 					<div class="contact_info">
 						<div class="section_title">Get in touch with us</div>
 						<div class="section_subtitle">Say hello</div>
-						<div class="contact_info_text"><p>Donec ullamcorper nulla non metus auctor fringi lla. Curabitur blandit tempus porttitor.Sed lectus urna, ultricies sit amet risus eget.</p></div>
+						<div class="contact_info_text"><p>Feel Free to contanct us regarding any query</p></div>
 						<div class="contact_info_content">
 							<ul class="contact_info_list">
 								<li>
@@ -115,7 +115,7 @@
 								</li>
 								<li>
 									<div>Email:</div>
-									<div>yourmail@gmail.com</div>
+									<div>blusky@gmail.com</div>
 								</li>
 							</ul>
 						</div>

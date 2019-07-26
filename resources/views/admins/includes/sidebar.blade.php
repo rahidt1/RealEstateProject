@@ -35,25 +35,28 @@
                                 <li><a title="Property List" href="{{ route('tableproperty',$userdata->id) }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
+                    @endif
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Property Detail" href="{{ route('propertydetail',$userdata->id) }}"><span class="mini-sub-pro">Property Detail</span></a></li>
                                 
                             </ul>
-                        
+                     @if(Session::get('userrole')=='admin')   
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="User List" href="{{ route('tableuser',$userdata->id) }}"><span class="mini-sub-pro">User List</span></a></li>
                                 
                             </ul>
                         </li>
+                    @endif
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Inbox" href="mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
+                                <li><a title="Inbox" href="#"><span class="mini-sub-pro">Inbox</span></a></li>
                                 
-                                <li><a title="Compose Mail" href="mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a></li>
+                                <li><a title="Compose Mail" href="#"><span class="mini-sub-pro">Compose Mail</span></a></li>
                             </ul>
                         </li>
                         <li>
+                    @if(Session::get('userrole')=='admin')
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Google Map" href="{{ route('login') }}"><span class="mini-sub-pro">Login</span></a></li>
@@ -73,12 +76,12 @@
                         <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Bar Charts" href="bar-charts.html"><span class="mini-sub-pro">Bar Charts</span></a></li>
+                                <li><a title="Bar Charts" href="#"><span class="mini-sub-pro">Bar Charts</span></a></li>
                                 
                             </ul>
                         </li>
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Peity Charts" href="#"><span class="mini-sub-pro">Static Table</span></a></li>
                                
