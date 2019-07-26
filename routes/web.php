@@ -20,6 +20,7 @@ Route::get('/properties','HomeController@properties')->name('properties');
 Route::get('/singleproperty/{id}','HomeController@singleproperty')->name('singleproperty');
 Route::get('/news','HomeController@news')->name('news');
 Route::get('/contact','HomeController@contact')->name('contact');
+Route::get('/complain','HomeController@complain')->name('complain');
 
 Route::group(['middleware' => 'checkloggedin'],function(){
 Route::get('/admin/{id}','HomeController@admin')->name('admin');

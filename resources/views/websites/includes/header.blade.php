@@ -13,6 +13,7 @@
 						<li><a href="{{ route('properties') }}">Properties</a></li>
 						<li><a href="{{ route('news') }}">News</a></li>
 						<li><a href="{{ route('contact') }}">Contact</a></li>
+												<li><a href="{{ route('complain') }}">Complain</a></li>
 						<li><a href="{{ route('login') }}">Login</a></li>
 						<li><a href="{{ route('registeruser') }}">Join Us</a></li>
 					</ul>

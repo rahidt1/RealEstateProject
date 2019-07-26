@@ -49,6 +49,11 @@ class HomeController extends Controller
         return view('websites.pages.contact',['mydata'=>$data]);
     }
 
+    public function complain(){
+        $data=PropertyList::orderBy("id", 'desc')->take(3)->get();
+        return view('websites.pages.complain',['mydata'=>$data]);
+    }
+
     /*Admin Panel*/
     public function admin($id){
 
