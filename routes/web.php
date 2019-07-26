@@ -96,3 +96,10 @@ Route::get('/ajaxform','ApiController@ajaxform')->name('ajaxform');
 //Route::post('/ajaxadd','ApiController@ajaxadd')->name('ajaxadd');
 
 
+
+
+
+Route::get('/sendemail', 'SendEmailController@index');
+Route::post('/sendemail/send', 'SendEmailController@send');
+
+
