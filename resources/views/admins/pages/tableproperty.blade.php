@@ -17,9 +17,6 @@
             Property List</div><br>
           <div class="card-body">
             <div class="table-responsive">
-              <div class="col-md-12" align="right">
-                <a href="{{ route('pdf') }}" class="btn btn-success">Save as PDF</a>
-              </div>
               <table class="table table-bordered" id="tanvir" width="100%" cellspacing="0">
                 <thead class="thead">
                   <tr>
@@ -30,7 +27,9 @@
                     <th>Address</th>
                     <th>Owner</th>
                     <th>Agent Name</th>
+                    @if(Session::get('userrole')=='admin')
                     <th class="text-center">ACTION</th>
+                    @endif
                   </tr>
                 </thead>
 
@@ -44,6 +43,7 @@
                     <td>{{ $d->address }}</td>
                     <td>{{ $d->owner }}</td>
                     <td>{{ $d->agentname }}</td>
+                    @if(Session::get('userrole')=='admin')
                     <td class="text-center">
 
                       <a class="btn btn-raised btn-primary btn-sm" href="{{ URL::to('/editaddproperty/'.$d->id) }}" ><i class="fas fa-user-edit"></i></a> 
@@ -67,6 +67,7 @@
                         </div>
                       </div>
                     </td>
+                    @endif
                   </tr>
                   
                   @endforeach

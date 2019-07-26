@@ -24,7 +24,7 @@
 
                    
                     
-                    @if(Session::get('userrole')=='admin')
+                    
                         <li> <!-- Add  class="active" for opened dropdown -->
                             <a class="has-arrow" href="#">
                                    <i class="icon nalika-home icon-wrap"></i>
@@ -35,12 +35,17 @@
                                 <li><a title="Property List" href="{{ route('tableproperty',$userdata->id) }}"><span class="mini-sub-pro">Property List</span></a></li>
                                 
                             </ul>
-                    @endif
+                    
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Property Detail" href="{{ route('propertydetail',$userdata->id) }}"><span class="mini-sub-pro">Property Detail</span></a></li>
                                 
                             </ul>
-                     @if(Session::get('userrole')=='admin')   
+
+                        </li>
+                    @if(Session::get('userrole')=='admin')
+                        <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
+                       
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="User List" href="{{ route('tableuser',$userdata->id) }}"><span class="mini-sub-pro">User List</span></a></li>
                                 
@@ -57,11 +62,7 @@
                         </li>
                         <li>
                     @if(Session::get('userrole')=='admin')
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="{{ route('login') }}"><span class="mini-sub-pro">Login</span></a></li>
-                                
-                            </ul>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Google Map" href="{{ route('addproperty',$userdata->id) }}"><span class="mini-sub-pro">Register Property</span></a></li>
                                 
@@ -74,19 +75,13 @@
                         </li>
                         @endif
                         <li>
-                            <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Bar Charts" href="#"><span class="mini-sub-pro">Bar Charts</span></a></li>
+                                <li><a title="Pie Charts" href="{{ route('admin',$userdata->id) }}"><span class="mini-sub-pro">Pie Charts</span></a></li>
                                 
                             </ul>
                         </li>
-                        <li>
-                            <a class="has-arrow" href="#" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Peity Charts" href="#"><span class="mini-sub-pro">Static Table</span></a></li>
-                               
-                            </ul>
-                        </li>
+                        
                 
                     </ul>
                 </nav>
