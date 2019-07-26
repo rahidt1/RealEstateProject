@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Registration</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/adminstyle/img/favicon.ico') }}">
@@ -134,7 +134,7 @@
                         </div>
                         <div class="text-center">
                             <button class="btn btn-success loginbtn">Register</button>
-                            <button class="btn btn-default">Cancel</button>
+                            <a class="btn btn-default btn-block" href="{{ route('registeruser') }}">Cancel</a>
                         </div>
                     </form>
 

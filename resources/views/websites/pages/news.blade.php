@@ -126,13 +126,13 @@
 				<div class="col-lg-4">
 					<div class="sidebar">
 
-						<!-- Search -->
+						<!-- Search
 						<div class="sidebar_top_search">
 							<form action="#" class="sidebar_top_search_form">
 								<input type="text" class="sidebar_top_search_input" placeholder="Search" required="required">
 								<button class="sidebar_top_search_button"><i class="fa fa-search" aria-hidden="true"></i></button>
 							</form>
-						</div>
+						</div> -->
 
 						<!-- Categories -->
 						<div class="categories">
